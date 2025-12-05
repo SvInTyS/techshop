@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<h2>Оформление заказа</h2>
+
+<form th:action="@{/order/submit}" method="post">
+    <label>Имя</label>
+    <input type="text" name="name" th:value="${name}" required />
+
+    <label>Телефон</label>
+    <input type="text" name="phone" th:value="${phone}" required />
+
+    <label>Адрес</label>
+    <textarea name="address" required th:text="${address}"></textarea>
+
+    <label>Комментарий</label>
+    <textarea name="comment" th:text="${comment}"></textarea>
+
+    <h3>Итог: <span th:text="${total}"></span> $</h3>
+
+    <button type="submit">Подтвердить заказ</button>
+</form>
+
+</body>
+</html>

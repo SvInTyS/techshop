@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<h2>Детали заказа #<span th:text="${order.id}"></span></h2>
+
+<p>Имя: <span th:text="${order.customerName}"></span></p>
+<p>Телефон: <span th:text="${order.phone}"></span></p>
+<p>Адрес: <span th:text="${order.address}"></span></p>
+
+<table>
+    <tr><th>Товар</th><th>Кол-во</th><th>Цена</th><th>Итого</th></tr>
+    <tr th:each="it : ${order.items}">
+        <td th:text="${it.product.name}"></td>
+        <td th:text="${it.quantity}"></td>
+        <td th:text="${it.price}"></td>
+        <td th:text="${it.price.multiply(T(java.math.BigDecimal).valueOf(it.quantity))}"></td>
+    </tr>
+</table>
+
+<p>Сумма: <span th:text="${order.total}"></span></p>
+
+</body>
+</html>

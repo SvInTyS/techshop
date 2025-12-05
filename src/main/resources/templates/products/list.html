@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Товары</title>
+</head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+
+<h1>Все товары</h1>
+
+<div th:each="p : ${products}">
+    <a th:href="@{'/products/' + ${p.id}}">
+        <h3 th:text="${p.name}"></h3>
+    </a>
+    <p th:text="${p.price} + ' $'"></p>
+    <hr>
+    <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
+        <button type="submit">В корзину</button>
+    </form>
+</div>
+
+</body>
+</html>

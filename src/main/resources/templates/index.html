@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TechShop — Главная</title>
+</head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+
+<h1>Добро пожаловать в TechShop!</h1>
+
+<h2>Популярные товары</h2>
+
+<div th:each="p : ${products}">
+    <a th:href="@{'/products/' + ${p.id}}">
+        <h3 th:text="${p.name}">Product Name</h3>
+    </a>
+    <p th:text="${p.price} + ' $'"></p>
+    <hr>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+<!-- fragment header -->
+<div th:fragment="header">
+    <a href="/">Главная</a>
+    <a href="/products">Каталог</a>
+    <a href="/cart">Корзина</a>
+
+    <span sec:authorize="isAnonymous()">
+        <a href="/login">Вход</a>
+        <a href="/register">Регистрация</a>
+    </span>
+
+    <span sec:authorize="isAuthenticated()">
+        <span>Привет, <span sec:authentication="name"></span>!</span>
+        <a href="/logout">Выход</a>
+    </span>
+</div>
+
+</body>
+</html>
