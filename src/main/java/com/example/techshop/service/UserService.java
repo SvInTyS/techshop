@@ -23,6 +23,9 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
+    /**
+     * Создание пользователя с ролью
+     */
     public User createUser(String username, String rawPassword, String role) {
 
         if (userRepository.findByUsername(username).isPresent()) {
@@ -35,5 +38,13 @@ public class UserService {
         user.setRole(role);
 
         return userRepository.save(user);
+    }
+
+    /**
+     * Возвращает пользователя или кидает ошибку
+     */
+    public User getRequiredUser(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found: " + username));
     }
 }

@@ -1,59 +1,83 @@
 package com.example.techshop.controller;
 
-import com.example.techshop.service.OrderService;
-import com.example.techshop.service.CartService;
-import com.example.techshop.domain.User;
-import com.example.techshop.service.UserService;
 import com.example.techshop.dto.OrderDTO;
-
+import com.example.techshop.domain.User;
+import com.example.techshop.service.CartService;
+import com.example.techshop.service.OrderService;
+import com.example.techshop.service.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
+@RequestMapping("/order")
 public class OrderController {
 
     private final CartService cartService;
     private final OrderService orderService;
     private final UserService userService;
 
-    public OrderController(CartService cartService, OrderService orderService, UserService userService) {
+    public OrderController(CartService cartService,
+                           OrderService orderService,
+                           UserService userService) {
         this.cartService = cartService;
         this.orderService = orderService;
         this.userService = userService;
     }
 
-    @GetMapping("/order/checkout")
-    public String checkout(Model model,
-                           @AuthenticationPrincipal UserDetails principal) {
+    private Optional<User> getCurrentUser(Authentication auth) {
+        if (auth == null || !auth.isAuthenticated()) return Optional.empty();
+        String username = auth.getName();
+        if (username == null || "anonymousUser".equals(username)) return Optional.empty();
+        return userService.findByUsername(username);
+    }
 
-        User user = userService.findByUsername(principal.getUsername()).orElse(null);
-        if (user == null) return "redirect:/login";
+    @GetMapping("/checkout")
+    public String checkout(Model model, Authentication auth) {
+        var userOpt = getCurrentUser(auth);
+        if (userOpt.isEmpty()) return "redirect:/login";
 
-        model.addAttribute("items", cartService.getItems(user));
-        model.addAttribute("total", cartService.getTotal(user));
+        User user = userOpt.get();
+        var items = cartService.getItems(user);
+        if (items.isEmpty()) return "redirect:/cart";
+
         model.addAttribute("orderDto", new OrderDTO());
-
+        model.addAttribute("items", items);
+        model.addAttribute("total", cartService.getTotal(user));
         return "order/checkout";
     }
 
-    @PostMapping("/order/checkout")
+    @PostMapping("/checkout")
     public String placeOrder(@ModelAttribute("orderDto") OrderDTO dto,
-                             @AuthenticationPrincipal UserDetails principal) {
+                             Authentication auth,
+                             Model model) {
 
-        User user = userService.findByUsername(principal.getUsername()).orElse(null);
-        if (user == null) return "redirect:/login";
+        var userOpt = getCurrentUser(auth);
+        if (userOpt.isEmpty()) return "redirect:/login";
 
-        orderService.createOrder(user, dto);
+        User user = userOpt.get();
+        var items = cartService.getItems(user);
+        if (items.isEmpty()) {
+            model.addAttribute("error", "Корзина пустая");
+            return "order/checkout";
+        }
+
+        // Вызываем существующий в твоём сервисе createOrderFromCart
+        var order = orderService.createOrderFromCart(
+                user,
+                items,
+                dto.getName(),
+                dto.getPhone(),
+                dto.getAddress(),
+                dto.getComment()
+        );
+
         cartService.clear(user);
 
-        return "redirect:/order/thanks";
-    }
-
-    @GetMapping("/order/thanks")
-    public String thanks() {
-        return "order/thanks";
+        model.addAttribute("orderId", order.getId());
+        return "order/success";
     }
 }

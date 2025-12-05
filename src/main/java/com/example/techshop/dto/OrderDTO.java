@@ -2,19 +2,18 @@ package com.example.techshop.dto;
 
 public class OrderDTO {
 
-    private String customerName;
+    private String name;
     private String phone;
     private String address;
     private String comment;
 
-    // getters + setters
-
-    public String getCustomerName() {
-        return customerName;
+    // Getters / Setters
+    public String getName() {
+        return name;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhone() {

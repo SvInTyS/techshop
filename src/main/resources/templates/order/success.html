@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<h2>Заказ оформлен!</h2>
+
+<p>Ваш номер заказа: <b th:text="${orderId}"></b></p>
+
+<a href="/">На главную</a>
+
+</body>
+</html>
