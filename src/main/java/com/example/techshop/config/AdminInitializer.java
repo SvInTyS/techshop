@@ -13,10 +13,16 @@ public class AdminInitializer {
     @Bean
     public CommandLineRunner initAdmin(UserRepository userRepo, PasswordEncoder encoder) {
         return args -> {
-            if (userRepo.findByUsername("admin") == null) {
-                User admin = new User("admin", encoder.encode("admin"), "ROLE_ADMIN");
+
+            if (userRepo.findByUsername("admin").isEmpty()) {
+                User admin = new User(
+                        "admin",
+                        encoder.encode("admin"),
+                        "ROLE_ADMIN"
+                );
                 userRepo.save(admin);
-                System.out.println("Admin user created: admin / admin");
+
+                System.out.println("✔ Admin user created: admin / admin");
             }
         };
     }

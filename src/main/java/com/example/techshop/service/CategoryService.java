@@ -5,30 +5,29 @@ import com.example.techshop.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoryService {
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepository repo;
 
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
+    public CategoryService(CategoryRepository repo) {
+        this.repo = repo;
     }
 
     public List<Category> findAll() {
-        return categoryRepository.findAll();
+        return repo.findAll();
     }
 
-    public Optional<Category> findById(Long id) {
-        return categoryRepository.findById(id);
+    public Category findById(Long id) {
+        return repo.findById(id).orElse(null);
     }
 
-    public Category save(Category category) {
-        return categoryRepository.save(category);
+    public Category save(Category c) {
+        return repo.save(c);
     }
 
     public void deleteById(Long id) {
-        categoryRepository.deleteById(id);
+        repo.deleteById(id);
     }
 }

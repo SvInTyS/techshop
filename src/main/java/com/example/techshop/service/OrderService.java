@@ -115,4 +115,14 @@ public class OrderService {
     public Order findByIdAndUser(Long id, User user) {
         return orderRepository.findByIdAndUser(id, user).orElse(null);
     }
+
+    // Админские методы
+    public List<Order> findAllOrders() {
+        return orderRepository.findAllByOrderByCreatedAtDesc();
+    }
+
+    public Order findById(Long id) {
+        return orderRepository.findById(id).orElse(null);
+    }
+
 }

@@ -80,4 +80,32 @@ public class OrderController {
         model.addAttribute("orderId", order.getId());
         return "order/success";
     }
+    //Методы ЛК пользователей
+    @GetMapping("/history")
+    public String orderHistory(Model model, Authentication auth) {
+        var userOpt = getCurrentUser(auth);
+        if (userOpt.isEmpty()) return "redirect:/login";
+
+        var user = userOpt.get();
+        var orders = orderService.findOrdersForUser(user);
+
+        model.addAttribute("orders", orders);
+        return "order/history";
+    }
+
+    @GetMapping("/{id}")
+    public String orderDetails(@PathVariable Long id,
+                               Model model,
+                               Authentication auth) {
+
+        var userOpt = getCurrentUser(auth);
+        if (userOpt.isEmpty()) return "redirect:/login";
+
+        var user = userOpt.get();
+        var order = orderService.findByIdAndUser(id, user);
+        if (order == null) return "redirect:/order/history";
+
+        model.addAttribute("order", order);
+        return "order/details";
+    }
 }

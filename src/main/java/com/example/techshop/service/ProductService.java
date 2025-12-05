@@ -9,29 +9,31 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final ProductRepository repo;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductService(ProductRepository repo) {
+        this.repo = repo;
     }
 
-    // Получить все товары
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return repo.findAll();
     }
 
-    // Получить товар по id
     public Product getProductById(Long id) {
-        return productRepository.findById(id)
-                .orElse(null); // позже сделаем обработку ошибок
+        return repo.findById(id).orElseThrow(() -> new RuntimeException("Product not found: " + id));
     }
 
-    // CRUD для админки (пока не используется)
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public Product save(Product p) {
+        return repo.save(p);
     }
 
-    public void delete(Long id) {
-        productRepository.deleteById(id);
+    public void deleteById(Long id) {
+        repo.deleteById(id);
+    }
+
+    // Optional: search
+    public List<Product> searchByName(String q) {
+        if (q == null || q.isBlank()) return repo.findAll();
+        return repo.findByNameContainingIgnoreCase(q);
     }
 }

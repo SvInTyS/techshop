@@ -13,6 +13,12 @@
         <a href="/login">Вход</a>
         <a href="/register">Регистрация</a>
     </span>
+    <span sec:authorize="isAuthenticated()">
+        <span>Привет, <span sec:authentication="name"></span>!</span>
+        <a href="/order/history">Мои заказы</a>
+        <a href="/logout">Выход</a>
+    </span>
+
 
     <span sec:authorize="isAuthenticated()">
         <span>Привет, <span sec:authentication="name"></span>!</span>

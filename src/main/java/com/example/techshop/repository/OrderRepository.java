@@ -12,4 +12,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByUserOrderByCreatedAtDesc(User user);
 
     Optional<Order> findByIdAndUser(Long id, User user);
+
+    // Для админки — все заказы в обратном хронологическом порядке
+    List<Order> findAllByOrderByCreatedAtDesc();
 }
