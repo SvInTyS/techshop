@@ -12,7 +12,7 @@
         <th>Количество</th>
         <th>Цена</th>
         <th>Итого</th>
-        <th></th>
+        <th>Действия</th>
     </tr>
 
     <tr th:each="item : ${items}">
@@ -38,6 +38,12 @@
 </table>
 
 <h3>Сумма: <span th:text="${total}"></span> $</h3>
+
+<br>
+
+<form th:action="@{/order/checkout}" method="get">
+    <button type="submit">Оформить заказ</button>
+</form>
 
 </body>
 </html>

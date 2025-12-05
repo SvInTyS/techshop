@@ -1,8 +1,11 @@
 package com.example.techshop.controller;
 
+import com.example.techshop.domain.User;
 import com.example.techshop.service.CartService;
 import com.example.techshop.service.ProductService;
-import jakarta.servlet.http.HttpSession;
+import com.example.techshop.service.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,44 +16,78 @@ public class CartController {
 
     private final CartService cartService;
     private final ProductService productService;
+    private final UserService userService;
 
     public CartController(CartService cartService,
-                          ProductService productService) {
+                          ProductService productService,
+                          UserService userService) {
         this.cartService = cartService;
         this.productService = productService;
+        this.userService = userService;
+    }
+
+    /**
+     * Возвращает текущего пользователя или null, если не аутентифицирован.
+     */
+    private User getCurrentUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || !auth.isAuthenticated()) {
+            return null;
+        }
+        String username = auth.getName();
+        if (username == null || "anonymousUser".equals(username)) {
+            return null;
+        }
+        return userService.findByUsername(username).orElse(null);
     }
 
     @GetMapping
-    public String viewCart(Model model, HttpSession session) {
+    public String viewCart(Model model) {
 
-        var items = cartService.getItems(session);
+        User user = getCurrentUser();
+        if (user == null) {
+            return "redirect:/login";
+        }
+
+        var items = cartService.getItems(user);
 
         if (items.isEmpty()) {
             return "cart/empty";
         }
 
         model.addAttribute("items", items);
-        model.addAttribute("total", cartService.getTotal(session));
+        model.addAttribute("total", cartService.getTotal(user));
 
         return "cart/view";
     }
 
     @PostMapping("/add/{id}")
-    public String addToCart(@PathVariable Long id, HttpSession session) {
-        var product = productService.getProductById(id);
-        cartService.addToCart(product, session);
+    public String addToCart(@PathVariable Long id) {
+        User user = getCurrentUser();
+        if (user == null) {
+            return "redirect:/login";
+        }
+        cartService.addToCart(user, id);
         return "redirect:/cart";
     }
 
     @PostMapping("/removeOne/{id}")
-    public String removeOne(@PathVariable Long id, HttpSession session) {
-        cartService.removeOne(id, session);
+    public String removeOne(@PathVariable Long id) {
+        User user = getCurrentUser();
+        if (user == null) {
+            return "redirect:/login";
+        }
+        cartService.removeOne(user, id);
         return "redirect:/cart";
     }
 
     @PostMapping("/removeAll/{id}")
-    public String removeAll(@PathVariable Long id, HttpSession session) {
-        cartService.removeAll(id, session);
+    public String removeAll(@PathVariable Long id) {
+        User user = getCurrentUser();
+        if (user == null) {
+            return "redirect:/login";
+        }
+        cartService.removeAll(user, id);
         return "redirect:/cart";
     }
 }

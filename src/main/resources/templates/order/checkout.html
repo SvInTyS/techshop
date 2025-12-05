@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
 <h2>Оформление заказа</h2>
 
-<form th:action="@{/order/submit}" method="post">
-    <label>Имя</label>
-    <input type="text" name="name" th:value="${name}" required />
+<form method="post" th:action="@{/order/checkout}" th:object="${orderDto}">
 
-    <label>Телефон</label>
-    <input type="text" name="phone" th:value="${phone}" required />
+    <label>Имя:</label>
+    <input type="text" th:field="*{customerName}" required>
 
-    <label>Адрес</label>
-    <textarea name="address" required th:text="${address}"></textarea>
+    <label>Телефон:</label>
+    <input type="text" th:field="*{phone}" required>
 
-    <label>Комментарий</label>
-    <textarea name="comment" th:text="${comment}"></textarea>
+    <label>Адрес:</label>
+    <input type="text" th:field="*{address}" required>
 
-    <h3>Итог: <span th:text="${total}"></span> $</h3>
+    <label>Комментарий:</label>
+    <textarea th:field="*{comment}"></textarea>
 
     <button type="submit">Подтвердить заказ</button>
 </form>
