@@ -1,30 +1,28 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<body>
+<!-- src/main/resources/templates/fragments/header.html -->
+<div th:fragment="header" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <div class="header" style="margin-bottom: 20px">
 
-<!-- fragment header -->
-<div th:fragment="header">
-    <a href="/">Главная</a>
-    <a href="/products">Каталог</a>
-    <a href="/cart">Корзина</a>
+        <a href="/">Главная</a>
+        <a href="/products">Каталог</a>
+        <a href="/cart">Корзина</a>
 
-    <span sec:authorize="isAnonymous()">
-        <a href="/login">Вход</a>
-        <a href="/register">Регистрация</a>
-    </span>
-    <span sec:authorize="isAuthenticated()">
-        <span>Привет, <span sec:authentication="name"></span>!</span>
-        <a href="/order/history">Мои заказы</a>
-        <a href="/logout">Выход</a>
-    </span>
+        <!-- Только авторизованным -->
+        <span sec:authorize="isAuthenticated()">
+            <span>Привет, <span sec:authentication="name"></span>!</span>
+            <a href="/order/history">Мои заказы</a>
+            <a href="/logout">Выход</a>
 
+            <!-- Только админу -->
+            <span sec:authorize="hasRole('ADMIN')">
+                | <a href="/admin">Админ-панель</a>
+            </span>
+        </span>
 
-    <span sec:authorize="isAuthenticated()">
-        <span>Привет, <span sec:authentication="name"></span>!</span>
-        <a href="/logout">Выход</a>
-    </span>
+        <!-- Только гостям -->
+        <span sec:authorize="isAnonymous()">
+            <a href="/login">Вход</a>
+            <a href="/register">Регистрация</a>
+        </span>
+
+    </div>
 </div>
-
-</body>
-</html>
