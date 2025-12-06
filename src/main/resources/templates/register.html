@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Регистрация</title>
-    <meta charset="UTF-8">
-</head>
+<head th:replace="~{fragments/header :: head('Регистрация')}"></head>
 <body>
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h1>Регистрация</h1>
+<div class="ks-container">
+    <div class="ks-card" style="max-width: 500px; margin: 40px auto;">
+        <h1 class="ks-page-title" style="text-align:center;">Регистрация</h1>
 
-<form th:action="@{/register}"
-      th:object="${userDto}"
-      method="post">
+        <form th:action="@{/register}" th:object="${userDto}" method="post">
 
-    <div>
-        <label>Имя:</label><br>
-        <input type="text" th:field="*{firstName}" />
-        <div style="color:red"
-             th:if="${#fields.hasErrors('firstName')}"
-             th:errors="*{firstName}"></div>
+            <div class="mb-3">
+                <label>Имя</label>
+                <input type="text" th:field="*{firstName}"/>
+                <div th:if="${#fields.hasErrors('firstName')}"
+                     th:errors="*{firstName}"
+                     class="text-danger"></div>
+            </div>
+
+            <div class="mb-3">
+                <label>Фамилия</label>
+                <input type="text" th:field="*{lastName}"/>
+                <div th:if="${#fields.hasErrors('lastName')}"
+                     th:errors="*{lastName}"
+                     class="text-danger"></div>
+            </div>
+
+            <div class="mb-3">
+                <label>Почта (логин)</label>
+                <input type="text" th:field="*{username}"/>
+                <div th:if="${#fields.hasErrors('username')}"
+                     th:errors="*{username}"
+                     class="text-danger"></div>
+            </div>
+
+            <div class="mb-3">
+                <label>Телефон</label>
+                <input type="text" th:field="*{phone}"/>
+                <div th:if="${#fields.hasErrors('phone')}"
+                     th:errors="*{phone}"
+                     class="text-danger"></div>
+            </div>
+
+            <div class="mb-3">
+                <label>Пароль</label>
+                <input type="password" th:field="*{password}"/>
+                <div th:if="${#fields.hasErrors('password')}"
+                     th:errors="*{password}"
+                     class="text-danger"></div>
+            </div>
+
+            <div style="text-align:center;">
+                <button type="submit">Создать аккаунт</button>
+            </div>
+
+            <p th:if="${error}" th:text="${error}" class="text-danger"
+               style="margin-top:10px; text-align:center;"></p>
+
+        </form>
     </div>
-
-    <div>
-        <label>Фамилия:</label><br>
-        <input type="text" th:field="*{lastName}" />
-        <div style="color:red"
-             th:if="${#fields.hasErrors('lastName')}"
-             th:errors="*{lastName}"></div>
-    </div>
-
-    <div>
-        <label>Почта:</label><br>
-        <input type="email" th:field="*{email}" />
-        <div style="color:red"
-             th:if="${#fields.hasErrors('email')}"
-             th:errors="*{email}"></div>
-    </div>
-
-    <div>
-        <label>Телефон:</label><br>
-        <input type="text" th:field="*{phone}" placeholder="+79991234567" />
-        <div style="color:red"
-             th:if="${#fields.hasErrors('phone')}"
-             th:errors="*{phone}"></div>
-    </div>
-
-    <div>
-        <label>Пароль:</label><br>
-        <input type="password" th:field="*{password}" />
-        <div style="color:red"
-             th:if="${#fields.hasErrors('password')}"
-             th:errors="*{password}"></div>
-    </div>
-
-    <button type="submit">Создать аккаунт</button>
-
-</form>
+</div>
 
 </body>
 </html>

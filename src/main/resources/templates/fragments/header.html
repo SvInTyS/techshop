@@ -1,28 +1,54 @@
-<div th:fragment="header" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <div class="header" style="margin-bottom: 20px">
+<!-- src/main/resources/templates/fragments/header.html -->
 
-        <a href="/">Главная</a>
-        <a href="/products">Каталог</a>
-        <a href="/cart">Корзина</a>
+<!-- Фрагмент <head> с подключением стилей -->
+<head th:fragment="head(title)">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">TechShop</title>
+    <link rel="stylesheet" th:href="@{/css/keenetic.css}"/>
+</head>
 
-        <!-- Только авторизованным -->
-        <span sec:authorize="isAuthenticated()">
-            <span>Привет, <span sec:authentication="name"></span>!</span>
-            <a href="/order/history">Мои заказы</a>
-            <a href="/profile">Профиль</a>
-            <a href="/logout">Выход</a>
+<!-- Фрагмент шапки -->
+<div th:fragment="header"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-            <!-- Только админу -->
-            <span sec:authorize="hasRole('ADMIN')">
-                | <a href="/admin">Админ-панель</a>
-            </span>
-        </span>
+    <header class="ks-header">
+        <div class="ks-header-inner">
 
-        <!-- Только гостям -->
-        <span sec:authorize="isAnonymous()">
-            <a href="/login">Вход</a>
-            <a href="/register">Регистрация</a>
-        </span>
+            <div class="ks-logo">
+                TECH<span>SHOP</span>
+            </div>
 
-    </div>
+            <nav class="ks-nav">
+                <a href="/">Главная</a>
+                <a href="/products">Каталог</a>
+                <a href="/cart">Корзина</a>
+            </nav>
+
+            <div class="ks-user-block">
+
+                <!-- Только авторизованным -->
+                <span sec:authorize="isAuthenticated()">
+                    <span class="ks-tag-muted">
+                        Привет, <span sec:authentication="name"></span>!
+                    </span>
+                    <a href="/order/history">Мои заказы</a>
+                    <a href="/profile">Профиль</a>
+                    <a href="/logout">Выход</a>
+
+                    <!-- Только админу -->
+                    <span sec:authorize="hasRole('ADMIN')">
+                        <span class="ks-tag-muted">|</span>
+                        <a href="/admin">Админ-панель</a>
+                    </span>
+                </span>
+
+                <!-- Только гостям -->
+                <span sec:authorize="isAnonymous()">
+                    <a href="/login">Вход</a>
+                    <a href="/register">Регистрация</a>
+                </span>
+
+            </div>
+        </div>
+    </header>
 </div>

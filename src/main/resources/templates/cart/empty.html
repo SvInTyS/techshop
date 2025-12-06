@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Корзина')}"></head>
 <body>
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h2>Корзина пуста</h2>
+<div class="ks-container">
+    <div class="ks-card">
+        <h2 class="ks-page-title">Корзина пуста</h2>
+        <p class="ks-tag-muted">Добавьте товары из каталога — они появятся здесь.</p>
+        <a href="/products" class="btn">Перейти в каталог</a>
+    </div>
+</div>
 
 </body>
 </html>

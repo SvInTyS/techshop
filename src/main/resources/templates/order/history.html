@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Мои заказы')}"></head>
 <body>
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h2>Мои заказы</h2>
+<div class="ks-container">
+    <div class="ks-card">
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Дата</th>
-        <th>Сумма</th>
-        <th>Статус</th>
-        <th></th>
-    </tr>
+        <h2 class="ks-page-title">Мои заказы</h2>
 
-    <tr th:each="o : ${orders}">
-        <td th:text="${o.id}"></td>
-        <td th:text="${o.createdAt}"></td>
-        <td th:text="${o.total} + ' $'"></td>
-        <td th:text="${o.status}"></td>
-        <td>
-            <a th:href="@{'/order/' + ${o.id}}">Подробнее</a>
-        </td>
-    </tr>
-</table>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Дата</th>
+                <th>Сумма</th>
+                <th>Статус</th>
+                <th></th>
+            </tr>
+
+            <tr th:each="o : ${orders}">
+                <td th:text="${o.id}"></td>
+                <td th:text="${o.createdAt}"></td>
+                <td th:text="${o.total} + ' $'"></td>
+                <td th:text="${o.status}"></td>
+                <td>
+                    <a th:href="@{'/order/' + ${o.id}}">Подробнее</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
 
 </body>
 </html>

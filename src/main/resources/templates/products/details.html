@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title th:text="${product.name}">Product</title>
-</head>
+<head th:replace="~{fragments/header :: head('Информация о товаре')}"></head>
 <body>
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h1 th:text="${product.name}"></h1>
+<div class="ks-container">
+    <div class="ks-card">
+        <h1 class="ks-page-title" th:text="${product.name}"></h1>
 
-<p th:text="${product.description}"></p>
+        <p th:text="${product.description}"></p>
 
-<p>
-    Цена: <span th:text="${product.price}"></span> $
-    <span th:if="${product.stock == 0}" style="color:red; margin-left: 10px;">Нет в наличии</span>
-</p>
+        <p style="margin-top: 16px;">
+            Цена: <span th:text="${product.price}"></span> $
+            <span th:if="${product.stock == 0}" style="color:red; margin-left: 10px;">Нет в наличии</span>
+        </p>
 
-<div th:if="${product.stock > 0}">
-    <form th:action="@{'/cart/add/' + ${product.id}}" method="post">
-        <button type="submit">Добавить в корзину</button>
-    </form>
-</div>
-<div th:if="${product.stock == 0}">
-    <p style="color:gray;">Товар недоступен для заказа</p>
+        <div th:if="${product.stock > 0}" style="margin-top: 12px;">
+            <form th:action="@{'/cart/add/' + ${product.id}}" method="post">
+                <button type="submit">Добавить в корзину</button>
+            </form>
+        </div>
+        <div th:if="${product.stock == 0}" style="margin-top: 12px;">
+            <p style="color:gray;">Товар недоступен для заказа</p>
+        </div>
+    </div>
 </div>
 
 </body>

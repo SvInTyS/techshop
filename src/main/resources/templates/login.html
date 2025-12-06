@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Вход</title>
-    <meta charset="UTF-8">
-</head>
+<head th:replace="~{fragments/header :: head('Вход в систему')}"></head>
 <body>
 
-<th:block th:replace="fragments/header :: header"></th:block>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h1>Вход</h1>
+<div class="ks-container">
+    <div class="ks-card" style="max-width: 400px; margin: 40px auto;">
+        <h1 class="ks-page-title" style="text-align:center;">Вход</h1>
 
-<form th:action="@{/login}" method="post">
+        <form th:action="@{/login}" method="post">
 
-    <label>Почта:</label>
-    <input type="text" name="username">
+            <div class="mb-3">
+                <label>Логин</label>
+                <input type="text" name="username"/>
+            </div>
 
-    <label>Пароль:</label>
-    <input type="password" name="password">
+            <div class="mb-3">
+                <label>Пароль</label>
+                <input type="password" name="password"/>
+            </div>
 
-    <button type="submit">Войти</button>
-</form>
+            <div style="text-align:center;">
+                <button type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

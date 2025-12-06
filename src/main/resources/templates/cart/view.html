@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Корзина')}"></head>
 <body>
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h2>Корзина</h2>
+<div class="ks-container">
+    <div class="ks-card">
 
-<div th:if="${error}" style="color:red; margin-bottom: 10px;"
-     th:text="${error}"></div>
+        <h2 class="ks-page-title">Корзина</h2>
 
-<table>
-    <tr>
-        <th>Название</th>
-        <th>Количество</th>
-        <th>Цена</th>
-        <th>Итого</th>
-        <th>Действия</th>
-    </tr>
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
 
-    <tr th:each="item : ${items}">
-        <td th:text="${item.product.name}"></td>
-        <td th:text="${item.quantity}"></td>
-        <td th:text="${item.product.price}"></td>
-        <td th:text="${item.total}"></td>
+        <table>
+            <tr>
+                <th>Название</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Итого</th>
+                <th>Действия</th>
+            </tr>
 
-        <td>
-            <form th:action="@{'/cart/removeOne/' + ${item.product.id}}" method="post" style="display:inline;">
-                <button>-</button>
-            </form>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.product.name}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.product.price}"></td>
+                <td th:text="${item.total}"></td>
 
-            <form th:action="@{'/cart/add/' + ${item.product.id}}" method="post" style="display:inline;">
-                <button>+</button>
-            </form>
+                <td>
+                    <form th:action="@{'/cart/removeOne/' + ${item.product.id}}" method="post" style="display:inline;">
+                        <button>-</button>
+                    </form>
 
-            <form th:action="@{'/cart/removeAll/' + ${item.product.id}}" method="post" style="display:inline;">
-                <button>Удалить</button>
-            </form>
-        </td>
-    </tr>
-</table>
+                    <form th:action="@{'/cart/add/' + ${item.product.id}}" method="post" style="display:inline;">
+                        <button>+</button>
+                    </form>
 
-<h3>Сумма: <span th:text="${total}"></span> $</h3>
+                    <form th:action="@{'/cart/removeAll/' + ${item.product.id}}" method="post" style="display:inline;">
+                        <button>Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
 
-<br>
+        <h3 style="margin-top: 16px;">Сумма: <span th:text="${total}"></span> $</h3>
 
-<form th:action="@{/order/checkout}" method="get">
-    <button type="submit">Оформить заказ</button>
-</form>
+        <form th:action="@{/order/checkout}" method="get" style="margin-top: 16px;">
+            <button type="submit">Оформить заказ</button>
+        </form>
+
+    </div>
+</div>
 
 </body>
 </html>

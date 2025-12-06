@@ -68,12 +68,10 @@ public class OrderItem {
     }
 
     /**
-     * Удобный геттер для шаблонов: цена * количество.
+     * Стоимость позиции = price * quantity
      */
     public BigDecimal getTotal() {
-        if (price == null) {
-            return BigDecimal.ZERO;
-        }
+        if (price == null) return BigDecimal.ZERO;
         return price.multiply(BigDecimal.valueOf(quantity));
     }
 }

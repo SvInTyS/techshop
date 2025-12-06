@@ -1,0 +1,285 @@
+:root {
+    --ks-blue: #0081d1;
+    --ks-blue-dark: #0062a3;
+    --ks-bg: #f3f6fb;
+    --ks-card-bg: #ffffff;
+    --ks-border: #dde3ed;
+    --ks-text-main: #222;
+    --ks-text-muted: #6c7a89;
+    --ks-danger: #e55353;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--ks-bg);
+    color: var(--ks-text-main);
+}
+
+a {
+    color: var(--ks-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+
+.ks-header {
+    background: linear-gradient(90deg, #0079c7, #00a0e3);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.ks-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ks-logo {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.ks-logo span {
+    font-weight: 400;
+}
+
+.ks-nav a {
+    margin-right: 16px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ks-nav a:last-child {
+    margin-right: 0;
+}
+
+.ks-nav a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.ks-user-block {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ks-user-block a {
+    color: #fff;
+    opacity: 0.9;
+}
+
+.ks-user-block a:hover {
+    opacity: 1;
+}
+
+/* Layout */
+
+.ks-container,
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 16px 40px;
+}
+
+.ks-card {
+    background: var(--ks-card-bg);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--ks-border);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.ks-page-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.ks-section-title {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.ks-tag-muted {
+    color: var(--ks-text-muted);
+    font-size: 13px;
+}
+
+/* Forms */
+
+input[type=text],
+input[type=password],
+input[type=number],
+textarea,
+select,
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--ks-border);
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--ks-blue);
+    box-shadow: 0 0 0 1px rgba(0, 129, 209, 0.15);
+}
+
+/* Buttons */
+
+button,
+.btn {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    background: var(--ks-blue);
+    color: #fff;
+}
+
+button:hover,
+.btn:hover {
+    background: var(--ks-blue-dark);
+}
+
+.btn-secondary {
+    background: #e4e9f2;
+    color: #33415c;
+}
+
+.btn-secondary:hover {
+    background: #d3d9e4;
+}
+
+.btn-danger {
+    background: var(--ks-danger);
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+/* Tables */
+
+table,
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th,
+table td,
+.table th,
+.table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--ks-border);
+    font-size: 14px;
+    text-align: left;
+}
+
+table th,
+.table th {
+    font-weight: 600;
+    background: #f5f7fb;
+}
+
+.table-hover tbody tr:hover {
+    background: #f0f4fb;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background: #fafbff;
+}
+
+/* Utility */
+
+.mb-3 {
+    margin-bottom: 16px;
+}
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Input group */
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+/* Alerts / text helpers */
+
+.text-danger {
+    color: var(--ks-danger);
+}
+
+.alert {
+    padding: 10px 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background: #e3f7e9;
+    border: 1px solid #a5d6a7;
+    color: #256029;
+}
+
+.alert-danger {
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    color: #842029;
+}
+
+/* Product list */
+
+.ks-product-list-item {
+    border-bottom: 1px solid var(--ks-border);
+    padding: 10px 0;
+}
+
+.ks-product-list-item:last-child {
+    border-bottom: none;
+}

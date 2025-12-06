@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Заказ оформлен')}"></head>
 <body>
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h2>Заказ оформлен!</h2>
+<div class="ks-container">
+    <div class="ks-card" style="max-width: 500px; margin: 40px auto; text-align:center;">
 
-<p>Ваш номер заказа: <b th:text="${orderId}"></b></p>
+        <h2 class="ks-page-title">Заказ оформлен!</h2>
 
-<a href="/">На главную</a>
+        <p>Ваш номер заказа: <b th:text="${orderId}"></b></p>
+
+        <a href="/" class="btn">На главную</a>
+
+    </div>
+</div>
 
 </body>
 </html>
