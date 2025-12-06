@@ -1,6 +1,7 @@
 package com.example.techshop.service;
 
 import com.example.techshop.domain.User;
+import com.example.techshop.dto.UserDTO;
 import com.example.techshop.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,26 +25,28 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    /**
-     * Возвращает список всех пользователей (для админки).
-     */
     public List<User> findAll() {
         return userRepository.findAll();
     }
 
     /**
-     * Создание пользователя с ролью
+     * Создание пользователя с ролью на основе DTO.
+     * username используем как email (логин = почта).
      */
-    public User createUser(String username, String rawPassword, String role) {
+    public User createUser(UserDTO dto, String role) {
 
-        if (userRepository.findByUsername(username).isPresent()) {
+        if (userRepository.findByUsername(dto.getEmail()).isPresent()) {
             throw new RuntimeException("User already exists");
         }
 
         User user = new User();
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(rawPassword));
+        user.setUsername(dto.getEmail());
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setRole(role);
+
+        user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
+        user.setPhone(dto.getPhone());
 
         return userRepository.save(user);
     }

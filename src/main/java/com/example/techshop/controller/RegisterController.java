@@ -2,8 +2,10 @@ package com.example.techshop.controller;
 
 import com.example.techshop.dto.UserDTO;
 import com.example.techshop.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -23,16 +25,27 @@ public class RegisterController {
 
     @PostMapping("/register")
     public String processRegistration(
-            @ModelAttribute("userDto") UserDTO dto,
+            @Valid @ModelAttribute("userDto") UserDTO dto,
+            BindingResult bindingResult,
             Model model
     ) {
 
-        if (userService.findByUsername(dto.getUsername()).isPresent()) {
-            model.addAttribute("error", "Пользователь с таким логином уже существует");
+        // Уже есть ошибки валидации полей
+        if (bindingResult.hasErrors()) {
             return "register";
         }
 
-        userService.createUser(dto.getUsername(), dto.getPassword(), "ROLE_USER");
+        // Проверим уникальность email (username)
+        if (userService.findByUsername(dto.getEmail()).isPresent()) {
+            bindingResult.rejectValue(
+                    "email",
+                    "duplicate",
+                    "Пользователь с такой почтой уже существует"
+            );
+            return "register";
+        }
+
+        userService.createUser(dto, "ROLE_USER");
         return "redirect:/login";
     }
 }
