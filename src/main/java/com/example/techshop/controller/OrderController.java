@@ -44,7 +44,24 @@ public class OrderController {
         var items = cartService.getItems(user);
         if (items.isEmpty()) return "redirect:/cart";
 
-        model.addAttribute("orderDto", new OrderDTO());
+        // Предзаполняем форму из профиля
+        OrderDTO orderDto = new OrderDTO();
+        String fullName = "";
+        if (user.getFirstName() != null) {
+            fullName += user.getFirstName();
+        }
+        if (user.getLastName() != null) {
+            if (!fullName.isEmpty()) fullName += " ";
+            fullName += user.getLastName();
+        }
+        if (!fullName.isEmpty()) {
+            orderDto.setName(fullName);
+        }
+        if (user.getPhone() != null) {
+            orderDto.setPhone(user.getPhone());
+        }
+
+        model.addAttribute("orderDto", orderDto);
         model.addAttribute("items", items);
         model.addAttribute("total", cartService.getTotal(user));
         return "order/checkout";
@@ -65,7 +82,7 @@ public class OrderController {
             return "order/checkout";
         }
 
-        // Вызываем существующий в твоём сервисе createOrderFromCart
+        // Создаём заказ из корзины
         var order = orderService.createOrderFromCart(
                 user,
                 items,
@@ -80,7 +97,8 @@ public class OrderController {
         model.addAttribute("orderId", order.getId());
         return "order/success";
     }
-    //Методы ЛК пользователей
+
+    // Методы ЛК пользователей
     @GetMapping("/history")
     public String orderHistory(Model model, Authentication auth) {
         var userOpt = getCurrentUser(auth);

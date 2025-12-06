@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой профиль</title>
+</head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<h1>Мой профиль</h1>
+
+<div th:if="${success}" style="color: green; margin-bottom: 10px;">
+    Данные успешно сохранены.
+</div>
+
+<form th:action="@{/profile}"
+      th:object="${profile}"
+      method="post">
+
+    <div>
+        <label>Имя:</label><br>
+        <input type="text" th:field="*{firstName}"/>
+        <div style="color:red"
+             th:if="${#fields.hasErrors('firstName')}"
+             th:errors="*{firstName}"></div>
+    </div>
+
+    <div>
+        <label>Фамилия:</label><br>
+        <input type="text" th:field="*{lastName}"/>
+        <div style="color:red"
+             th:if="${#fields.hasErrors('lastName')}"
+             th:errors="*{lastName}"></div>
+    </div>
+
+    <div>
+        <label>Почта (логин):</label><br>
+        <input type="email" th:field="*{email}"/>
+        <div style="color:red"
+             th:if="${#fields.hasErrors('email')}"
+             th:errors="*{email}"></div>
+    </div>
+
+    <div>
+        <label>Телефон:</label><br>
+        <input type="text" th:field="*{phone}" placeholder="+79991234567"/>
+        <div style="color:red"
+             th:if="${#fields.hasErrors('phone')}"
+             th:errors="*{phone}"></div>
+    </div>
+
+    <br>
+    <button type="submit">Сохранить</button>
+</form>
+
+</body>
+</html>

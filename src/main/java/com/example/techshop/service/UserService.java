@@ -1,6 +1,7 @@
 package com.example.techshop.service;
 
 import com.example.techshop.domain.User;
+import com.example.techshop.dto.ProfileDTO;
 import com.example.techshop.dto.UserDTO;
 import com.example.techshop.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,8 +31,7 @@ public class UserService {
     }
 
     /**
-     * Создание пользователя с ролью на основе DTO.
-     * username используем как email (логин = почта).
+     * Создание пользователя на основе DTO (регистрация).
      */
     public User createUser(UserDTO dto, String role) {
 
@@ -44,6 +44,29 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setRole(role);
 
+        user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
+        user.setPhone(dto.getPhone());
+
+        return userRepository.save(user);
+    }
+
+    /**
+     * Обновление профиля текущего пользователя.
+     */
+    public User updateProfile(User user, ProfileDTO dto) {
+
+        // если email меняется — проверяем уникальность
+        String newEmail = dto.getEmail();
+        if (!user.getUsername().equals(newEmail)) {
+            userRepository.findByUsername(newEmail).ifPresent(existing -> {
+                if (!existing.getId().equals(user.getId())) {
+                    throw new RuntimeException("Email already in use");
+                }
+            });
+        }
+
+        user.setUsername(newEmail);
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setPhone(dto.getPhone());
