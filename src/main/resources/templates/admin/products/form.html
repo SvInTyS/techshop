@@ -6,15 +6,11 @@
 <div class="container">
     <h2 th:text="${product.id} != null ? 'Редактировать товар' : 'Создать товар'"></h2>
 
-    <!-- ВАЖНО: разный action для create / edit -->
-    <form th:action="${product.id} == null ?
-                      @{/admin/products/create} :
-                      @{'/admin/products/edit/' + ${product.id}}"
+    <form th:action="@{/admin/products/save}"
           th:object="${product}"
           method="post">
 
-        <!-- id можно оставить, но логика теперь на URL -->
-        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{id}"/>
 
         <div class="mb-3">
             <label class="form-label">Название</label>

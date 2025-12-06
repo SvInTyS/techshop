@@ -22,10 +22,15 @@ public class Category {
         this.name = name;
     }
 
-    // Getters / Setters
+    // === ВАЖНО: добавили setId ===
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    // === /ВАЖНО ===
 
     public String getName() {
         return name;
