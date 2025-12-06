@@ -6,6 +6,9 @@
 
 <h2>Корзина</h2>
 
+<div th:if="${error}" style="color:red; margin-bottom: 10px;"
+     th:text="${error}"></div>
+
 <table>
     <tr>
         <th>Название</th>
@@ -22,15 +25,15 @@
         <td th:text="${item.total}"></td>
 
         <td>
-            <form th:action="@{'/cart/removeOne/' + ${item.product.id}}" method="post">
+            <form th:action="@{'/cart/removeOne/' + ${item.product.id}}" method="post" style="display:inline;">
                 <button>-</button>
             </form>
 
-            <form th:action="@{'/cart/add/' + ${item.product.id}}" method="post">
+            <form th:action="@{'/cart/add/' + ${item.product.id}}" method="post" style="display:inline;">
                 <button>+</button>
             </form>
 
-            <form th:action="@{'/cart/removeAll/' + ${item.product.id}}" method="post">
+            <form th:action="@{'/cart/removeAll/' + ${item.product.id}}" method="post" style="display:inline;">
                 <button>Удалить</button>
             </form>
         </td>

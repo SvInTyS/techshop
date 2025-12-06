@@ -7,18 +7,28 @@
 
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-
 <h1>Все товары</h1>
 
 <div th:each="p : ${products}">
     <a th:href="@{'/products/' + ${p.id}}">
         <h3 th:text="${p.name}"></h3>
     </a>
-    <p th:text="${p.price} + ' $'"></p>
+
+    <p>
+        <span th:text="${p.price} + ' $'"></span>
+        <span th:if="${p.stock == 0}" style="color:red; margin-left: 10px;">Нет в наличии</span>
+    </p>
+
     <hr>
-    <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
-        <button type="submit">В корзину</button>
-    </form>
+
+    <div th:if="${p.stock > 0}">
+        <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
+            <button type="submit">В корзину</button>
+        </form>
+    </div>
+    <div th:if="${p.stock == 0}">
+        <span style="color:gray;">Товар недоступен для заказа</span>
+    </div>
 </div>
 
 </body>

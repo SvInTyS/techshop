@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
@@ -65,17 +66,24 @@ public class CartController {
     @PostMapping("/add/{id}")
     public String addToCart(@PathVariable Long id,
                             Authentication auth,
-                            HttpSession session) {
+                            HttpSession session,
+                            RedirectAttributes ra) {
 
         String cartKey = cartService.getCartKey(session);
         var userOpt = getCurrentUser(auth);
 
+        boolean ok;
+
         if (userOpt.isPresent()) {
             User user = userOpt.get();
             cartService.mergeSessionCartIntoUser(cartKey, user);
-            cartService.addToUserCart(user, id);
+            ok = cartService.addToUserCart(user, id);
         } else {
-            cartService.addToSessionCart(cartKey, id);
+            ok = cartService.addToSessionCart(cartKey, id);
+        }
+
+        if (!ok) {
+            ra.addFlashAttribute("error", "Недостаточно товара на складе для добавления в корзину");
         }
 
         return "redirect:/cart";

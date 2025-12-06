@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -44,15 +44,26 @@ public class OrderService {
         order.setCreatedAt(LocalDateTime.now());
         order.setStatus(OrderStatus.NEW);
 
-        List<OrderItem> items = cartItems.stream().map(ci -> {
+        List<OrderItem> items = new ArrayList<>();
+
+        for (CartItem ci : cartItems) {
             Product p = productService.getProductById(ci.getProduct().getId());
+
+            // уменьшаем склад
+            int newStock = p.getStock() - ci.getQuantity();
+            if (newStock < 0) {
+                newStock = 0; // теоретически не должны сюда попасть после проверок
+            }
+            p.setStock(newStock);
+            productService.save(p);
+
             OrderItem oi = new OrderItem();
             oi.setOrder(order);
             oi.setProduct(p);
             oi.setPrice(p.getPrice());
             oi.setQuantity(ci.getQuantity());
-            return oi;
-        }).collect(Collectors.toList());
+            items.add(oi);
+        }
 
         order.setItems(items);
 
@@ -73,6 +84,7 @@ public class OrderService {
         return orderRepository.findByIdAndUser(id, user).orElse(null);
     }
 
+    // Админские методы
     public List<Order> findAllOrders() {
         return orderRepository.findAllByOrderByCreatedAtDesc();
     }

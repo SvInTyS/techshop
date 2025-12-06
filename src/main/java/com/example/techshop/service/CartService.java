@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Service
 public class CartService {
 
-    // session-like key -> in-memory cart (для гостей)
+    // ключ корзины (CART_KEY) -> in-memory cart (для гостей)
     private final Map<String, List<CartItem>> sessionCarts = new HashMap<>();
 
     private static final String CART_KEY_ATTR = "CART_KEY";
@@ -31,7 +31,7 @@ public class CartService {
 
     /**
      * Устойчивый ключ корзины, привязанный к сессии.
-     * Хранится в атрибуте сессии, поэтому переживает смену JSESSIONID.
+     * Хранится в атрибуте сессии, переживает смену JSESSIONID.
      */
     public String getCartKey(HttpSession session) {
         Object attr = session.getAttribute(CART_KEY_ATTR);
@@ -60,20 +60,34 @@ public class CartService {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public void addToSessionCart(String cartKey, Long productId) {
-        if (cartKey == null) return;
+    /**
+     * Добавление в гостевую корзину с проверкой склада.
+     * @return true — успешно, false — не хватает на складе.
+     */
+    public boolean addToSessionCart(String cartKey, Long productId) {
+        if (cartKey == null) return false;
+
         List<CartItem> items = getOrCreateSessionCart(cartKey);
+        Product p = productService.getProductById(productId);
 
         Optional<CartItem> existing = items.stream()
                 .filter(i -> i.getProduct().getId().equals(productId))
                 .findFirst();
 
-        if (existing.isPresent()) {
-            existing.get().setQuantity(existing.get().getQuantity() + 1);
-        } else {
-            Product p = productService.getProductById(productId);
-            items.add(new CartItem(p));
+        int newQty = existing.map(ci -> ci.getQuantity() + 1).orElse(1);
+
+        if (newQty > p.getStock()) {
+            // нельзя добавить больше, чем есть на складе
+            return false;
         }
+
+        if (existing.isPresent()) {
+            existing.get().setQuantity(newQty);
+        } else {
+            items.add(new CartItem(p, 1));
+        }
+
+        return true;
     }
 
     public void removeOneFromSessionCart(String cartKey, Long productId) {
@@ -124,20 +138,32 @@ public class CartService {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public void addToUserCart(User user, Long productId) {
-        if (user == null) return;
+    /**
+     * Добавление в корзину пользователя с проверкой склада.
+     * @return true — успешно, false — не хватает на складе.
+     */
+    public boolean addToUserCart(User user, Long productId) {
+        if (user == null) return false;
 
         Product product = productService.getProductById(productId);
         var existingOpt = userCartItemRepository.findByUserAndProduct(user, product);
 
+        int newQty = existingOpt.map(e -> e.getQuantity() + 1).orElse(1);
+
+        if (newQty > product.getStock()) {
+            return false;
+        }
+
         if (existingOpt.isPresent()) {
             UserCartItem e = existingOpt.get();
-            e.setQuantity(e.getQuantity() + 1);
+            e.setQuantity(newQty);
             userCartItemRepository.save(e);
         } else {
             UserCartItem e = new UserCartItem(user, product, 1);
             userCartItemRepository.save(e);
         }
+
+        return true;
     }
 
     public void removeOneFromUserCart(User user, Long productId) {
@@ -165,10 +191,6 @@ public class CartService {
                 .ifPresent(userCartItemRepository::delete);
     }
 
-    /**
-     *  перепишем clearUserCart на безопасный вариант с deleteAll
-     *  который уже помечен @Transactional внутри Spring Data
-     */
     public void clearUserCart(User user) {
         if (user == null) return;
         var items = userCartItemRepository.findByUser(user);
@@ -177,6 +199,7 @@ public class CartService {
 
     /**
      * Переносит позиции из сессионной корзины в корзину пользователя и очищает сессию.
+     * (проверка склада будет дополнительно на этапе оформления заказа)
      */
     public void mergeSessionCartIntoUser(String cartKey, User user) {
         if (cartKey == null || user == null) return;

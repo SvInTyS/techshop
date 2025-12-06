@@ -6,6 +6,9 @@
 
 <h2>Оформление заказа</h2>
 
+<div th:if="${error}" style="color:red; margin-bottom: 10px;"
+     th:text="${error}"></div>
+
 <form th:action="@{/order/checkout}" th:object="${orderDto}" method="post">
 
     <label>Имя:</label><br>

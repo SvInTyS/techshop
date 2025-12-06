@@ -1,9 +1,12 @@
 package com.example.techshop.controller;
 
+import com.example.techshop.cart.CartItem;
+import com.example.techshop.domain.Product;
 import com.example.techshop.dto.OrderDTO;
 import com.example.techshop.domain.User;
 import com.example.techshop.service.CartService;
 import com.example.techshop.service.OrderService;
+import com.example.techshop.service.ProductService;
 import com.example.techshop.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.Authentication;
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,13 +25,16 @@ public class OrderController {
     private final CartService cartService;
     private final OrderService orderService;
     private final UserService userService;
+    private final ProductService productService;
 
     public OrderController(CartService cartService,
                            OrderService orderService,
-                           UserService userService) {
+                           UserService userService,
+                           ProductService productService) {
         this.cartService = cartService;
         this.orderService = orderService;
         this.userService = userService;
+        this.productService = productService;
     }
 
     private Optional<User> getCurrentUser(Authentication auth) {
@@ -91,9 +99,25 @@ public class OrderController {
         // окончательно убедимся, что всё в user-корзине
         cartService.mergeSessionCartIntoUser(cartKey, user);
 
-        var items = cartService.getUserItems(user);
+        List<CartItem> items = cartService.getUserItems(user);
         if (items.isEmpty()) {
             model.addAttribute("error", "Корзина пустая");
+            return "order/checkout";
+        }
+
+        // Проверка наличия на складе перед оформлением
+        List<String> errors = new ArrayList<>();
+        for (CartItem ci : items) {
+            Product p = productService.getProductById(ci.getProduct().getId());
+            if (ci.getQuantity() > p.getStock()) {
+                errors.add("Товара \"" + p.getName() + "\" осталось на складе только " + p.getStock() + " шт.");
+            }
+        }
+
+        if (!errors.isEmpty()) {
+            model.addAttribute("error", String.join(" ", errors));
+            model.addAttribute("items", items);
+            model.addAttribute("total", cartService.getUserTotal(user));
             return "order/checkout";
         }
 
