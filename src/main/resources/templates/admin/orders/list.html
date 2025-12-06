@@ -4,12 +4,21 @@
 <body>
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<div class="container">
+<div class="ks-container">
     <div class="ks-card">
         <h2 class="ks-page-title">Заказы</h2>
 
-        <table class="table table-striped">
-            <thead><tr><th>ID</th><th>Покупатель</th><th>Дата</th><th>Сумма</th><th>Статус</th><th>Детали</th></tr></thead>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Покупатель</th>
+                <th>Дата</th>
+                <th>Сумма</th>
+                <th>Статус</th>
+                <th>Детали</th>
+            </tr>
+            </thead>
             <tbody>
             <tr th:each="o : ${orders}">
                 <td th:text="${o.id}"></td>
@@ -17,10 +26,14 @@
                 <td th:text="${o.createdAt}"></td>
                 <td th:text="${o.total}"></td>
                 <td th:text="${o.status}"></td>
-                <td><a th:href="@{'/admin/orders/' + ${o.id}}" class="btn btn-secondary btn-sm">Открыть</a></td>
+                <td>
+                    <a th:href="@{'/admin/orders/' + ${o.id}}"
+                       class="btn btn-sm btn-secondary">Открыть</a>
+                </td>
             </tr>
             </tbody>
         </table>
+
     </div>
 </div>
 </body>

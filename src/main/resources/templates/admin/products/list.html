@@ -4,39 +4,65 @@
 <body>
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<div class="container">
+<div class="ks-container">
     <div class="ks-card">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Товары</h2>
-            <a class="btn btn-primary" href="/admin/products/create">Создать товар</a>
+
+        <!-- Админ-навигация -->
+        <div style="margin-bottom:12px;">
+            <a href="/admin/products" class="btn btn-sm btn-secondary">Товары</a>
+            <a href="/admin/orders" class="btn btn-sm" style="margin-left:4px;">Заказы</a>
+            <a href="/admin/categories" class="btn btn-sm" style="margin-left:4px;">Категории</a>
+            <a href="/admin/users" class="btn btn-sm" style="margin-left:4px;">Пользователи</a>
+        </div>
+
+        <div class="ks-page-header">
+            <h2 class="ks-page-title">Товары</h2>
+            <a class="btn btn-sm" href="/admin/products/create">+ Создать товар</a>
         </div>
 
         <form class="mb-3" method="get" action="/admin/products">
-            <div class="input-group">
-                <input name="q" th:value="${q}" class="form-control" placeholder="Поиск по названию"/>
-                <button class="btn btn-secondary" type="submit">Поиск</button>
-            </div>
+            <input name="q" th:value="${q}" placeholder="Поиск по названию"/>
         </form>
 
-        <table class="table table-hover">
-            <thead><tr><th>ID</th><th>Название</th><th>Категория</th><th>Цена</th><th>Склад</th><th>Действия</th></tr></thead>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Изображение</th>
+                <th>Название</th>
+                <th>Категория</th>
+                <th>Цена</th>
+                <th>Склад</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
             <tbody>
             <tr th:each="p : ${products}">
                 <td th:text="${p.id}">1</td>
+                <td>
+                    <div style="width:48px;height:48px;border-radius:8px;overflow:hidden;background:#e5edf7;">
+                        <img th:src="${p.imageUrl != null && !#strings.isEmpty(p.imageUrl) ? p.imageUrl : 'https://via.placeholder.com/96x96?text=TS'}"
+                             alt=""
+                             style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                </td>
                 <td th:text="${p.name}">Name</td>
                 <td th:text="${p.category != null ? p.category.name : ''}"></td>
                 <td th:text="${p.price}"></td>
                 <td th:text="${p.stock}"></td>
                 <td>
-                    <a th:href="@{'/admin/products/edit/' + ${p.id}}" class="btn btn-secondary btn-sm">Ред.</a>
-                    <form th:action="@{'/admin/products/delete/' + ${p.id}}" method="post" style="display:inline"
+                    <a th:href="@{'/admin/products/edit/' + ${p.id}}" class="btn btn-sm btn-secondary">Ред.</a>
+                    <form th:action="@{'/admin/products/delete/' + ${p.id}}"
+                          method="post"
+                          style="display:inline"
                           onsubmit="return confirm('Удалить товар?');">
-                        <button class="btn btn-danger btn-sm">Удалить</button>
+                        <button class="btn btn-sm btn-danger" type="submit">Удалить</button>
                     </form>
                 </td>
             </tr>
             </tbody>
         </table>
+
     </div>
 </div>
 </body>

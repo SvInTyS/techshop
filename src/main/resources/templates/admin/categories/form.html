@@ -4,18 +4,21 @@
 <body>
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<div class="container">
-    <div class="ks-card">
-        <h2 th:text="${category.id} != null ? 'Редактировать категорию' : 'Создать категорию'">Категории</h2>
+<div class="ks-container">
+    <div class="ks-card" style="max-width: 500px; margin: 0 auto;">
+        <h2 class="ks-page-title"
+            th:text="${category.id} != null ? 'Редактировать категорию' : 'Создать категорию'"></h2>
 
         <form th:action="@{/admin/categories/save}" th:object="${category}" method="post">
             <input type="hidden" th:field="*{id}"/>
+
             <div class="mb-3">
                 <label class="form-label">Название</label>
-                <input type="text" th:field="*{name}" class="form-control" required/>
+                <input type="text" th:field="*{name}" required/>
             </div>
-            <button class="btn btn-primary" type="submit">Сохранить</button>
-            <a class="btn btn-secondary" href="/admin/categories">Отмена</a>
+
+            <button class="btn" type="submit">Сохранить</button>
+            <a class="btn btn-secondary" href="/admin/categories" style="margin-left:8px;">Отмена</a>
         </form>
     </div>
 </div>

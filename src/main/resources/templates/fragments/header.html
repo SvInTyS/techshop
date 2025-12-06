@@ -1,54 +1,273 @@
-<!-- src/main/resources/templates/fragments/header.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<!-- Фрагмент <head> с подключением стилей -->
 <head th:fragment="head(title)">
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <title th:text="${title}">TechShop</title>
-    <link rel="stylesheet" th:href="@{/css/keenetic.css}"/>
+
+    <style>
+        /* Базовый фон и шрифт в стиле Keenetic */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f3f5f8;
+            color: #1f2933;
+        }
+
+        a {
+            color: #167dff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Верхняя панель */
+        .ks-header-bar {
+            background: linear-gradient(90deg, #0066cc, #00a3ff);
+            color: #ffffff;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .ks-header-left,
+        .ks-header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ks-logo {
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .ks-header-link {
+            color: #e1efff;
+            font-size: 14px;
+        }
+
+        .ks-header-link:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .ks-header-username {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Контейнер и карточки */
+        .ks-container {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        .ks-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px 24px;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+            margin-bottom: 16px;
+        }
+
+        .ks-page-title {
+            margin: 0 0 16px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .ks-section-title {
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .ks-page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ks-tag-muted {
+            font-size: 13px;
+            color: #757e8a;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: none;
+            padding: 6px 14px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #167dff;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background: #0d5bd1;
+        }
+
+        .btn-secondary {
+            background: #e4edf7;
+            color: #1f2933;
+        }
+
+        .btn-secondary:hover {
+            background: #cfdceb;
+        }
+
+        .btn-danger {
+            background: #e53935;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: #c62828;
+        }
+
+        .btn-sm {
+            padding: 4px 10px;
+            font-size: 13px;
+        }
+
+        /* Таблицы */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        table thead tr {
+            background: #f5f7fb;
+        }
+
+        table th,
+        table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e1e4ec;
+            text-align: left;
+        }
+
+        /* Карточки товаров */
+        .ks-product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .ks-product-card {
+            flex: 0 0 calc(33.333% - 16px);
+            min-width: 220px;
+        }
+
+        .ks-product-thumb {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            background: #e5edf7;
+        }
+
+        .ks-product-thumb img {
+            display: block;
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        /* Простенькие алерты */
+        .alert {
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .alert-success {
+            background: #e6f5ea;
+            color: #216e39;
+        }
+
+        .alert-danger {
+            background: #fdeaea;
+            color: #b3261e;
+        }
+
+        /* Формы */
+        input[type="text"],
+        input[type="number"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid #ccd3e0;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #167dff;
+            box-shadow: 0 0 0 1px rgba(22, 125, 255, 0.25);
+        }
+
+        .mb-3 {
+            margin-bottom: 12px;
+        }
+    </style>
 </head>
 
-<!-- Фрагмент шапки -->
-<div th:fragment="header"
-     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<div th:fragment="header" class="ks-header-bar">
+    <div class="ks-header-left">
+        <span class="ks-logo">TechShop</span>
+        <a href="/" class="ks-header-link">Главная</a>
+        <a href="/products" class="ks-header-link">Каталог</a>
+        <a href="/cart" class="ks-header-link">Корзина</a>
+    </div>
 
-    <header class="ks-header">
-        <div class="ks-header-inner">
+    <div class="ks-header-right">
 
-            <div class="ks-logo">
-                TECH<span>SHOP</span>
-            </div>
+        <!-- Только авторизованным -->
+        <span sec:authorize="isAuthenticated()">
+            <span class="ks-header-username">
+                <span sec:authentication="name"></span>
+            </span>
+            <a href="/order/history" class="ks-header-link">Мои заказы</a>
+            <a href="/profile" class="ks-header-link">Профиль</a>
+            <a href="/logout" class="ks-header-link">Выход</a>
 
-            <nav class="ks-nav">
-                <a href="/">Главная</a>
-                <a href="/products">Каталог</a>
-                <a href="/cart">Корзина</a>
-            </nav>
+            <!-- Только админу -->
+            <span sec:authorize="hasRole('ADMIN')">
+                | <a href="/admin/products" class="ks-header-link">Админка</a>
+            </span>
+        </span>
 
-            <div class="ks-user-block">
+        <!-- Только гостям -->
+        <span sec:authorize="isAnonymous()">
+            <a href="/login" class="ks-header-link">Вход</a>
+            <a href="/register" class="ks-header-link">Регистрация</a>
+        </span>
 
-                <!-- Только авторизованным -->
-                <span sec:authorize="isAuthenticated()">
-                    <span class="ks-tag-muted">
-                        Привет, <span sec:authentication="name"></span>!
-                    </span>
-                    <a href="/order/history">Мои заказы</a>
-                    <a href="/profile">Профиль</a>
-                    <a href="/logout">Выход</a>
-
-                    <!-- Только админу -->
-                    <span sec:authorize="hasRole('ADMIN')">
-                        <span class="ks-tag-muted">|</span>
-                        <a href="/admin">Админ-панель</a>
-                    </span>
-                </span>
-
-                <!-- Только гостям -->
-                <span sec:authorize="isAnonymous()">
-                    <a href="/login">Вход</a>
-                    <a href="/register">Регистрация</a>
-                </span>
-
-            </div>
-        </div>
-    </header>
+    </div>
 </div>
+</body>
+</html>

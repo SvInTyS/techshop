@@ -6,25 +6,95 @@
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
 <div class="ks-container">
+
+    <!-- Hero-блок -->
     <div class="ks-card">
-        <h1 class="ks-page-title">Добро пожаловать в TechShop!</h1>
+        <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+            <div style="flex:1 1 260px; min-width:260px;">
+                <h1 class="ks-page-title">TechShop — техника, которая работает</h1>
+                <p class="ks-tag-muted" style="margin-bottom:16px;">
+                    Ноутбуки, смартфоны и аксессуары. Никакой мишуры — только то, чем реально пользуются.
+                </p>
 
-        <h2 class="ks-section-title">Популярные товары</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <a href="/products" class="btn">Открыть каталог</a>
+                    <a href="/order/history" class="btn btn-secondary" th:if="${#authorization.expression('isAuthenticated()')}">
+                        Мои заказы
+                    </a>
+                </div>
+            </div>
 
-        <div th:if="${#lists.isEmpty(products)}">
-            <p class="ks-tag-muted">Пока нет доступных товаров.</p>
-        </div>
-
-        <div th:each="p : ${products}" class="ks-product-list-item">
-            <a th:href="@{'/products/' + ${p.id}}">
-                <strong th:text="${p.name}">Product Name</strong>
-            </a>
-            <div>
-                <span th:text="${p.price} + ' $'"></span>
-                <span th:if="${p.stock == 0}" style="color:red; margin-left: 10px;">Нет в наличии</span>
+            <div style="flex:0 0 260px; min-width:220px;">
+                <div class="ks-card" style="background:linear-gradient(135deg,#005bbf,#00a3ff); color:#fff;">
+                    <div class="ks-section-title" style="color:#e1efff;">Состояние аккаунта</div>
+                    <p style="margin:0;font-size:14px;">
+                        <span th:if="${#authorization.expression('isAuthenticated()')}">
+                            Вы вошли как <b><span th:text="${#authentication.name}"></span></b>.
+                        </span>
+                        <span th:unless="${#authorization.expression('isAuthenticated()')}">
+                            Вы не авторизованы. Войдите или зарегистрируйтесь, чтобы оформлять заказы.
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Популярные товары -->
+    <div class="ks-card">
+        <div class="ks-page-header">
+            <h2 class="ks-page-title">Популярные товары</h2>
+            <span class="ks-tag-muted">
+                <a href="/products">Перейти ко всему каталогу →</a>
+            </span>
+        </div>
+
+        <div th:if="${#lists.isEmpty(products)}">
+            <p class="ks-tag-muted">Пока нет ни одного товара. Загляните позже.</p>
+        </div>
+
+        <div class="ks-product-grid">
+            <div th:each="p, iterStat : ${products}"
+                 th:if="${iterStat.index} < 6"
+                 class="ks-product-card">
+                <div class="ks-card" style="margin-bottom:0;">
+
+                    <div class="ks-product-thumb">
+                        <img th:src="${p.imageUrl != null && !#strings.isEmpty(p.imageUrl) ? p.imageUrl : 'https://via.placeholder.com/320x180?text=TechShop'}"
+                             alt="product image">
+                    </div>
+
+                    <a th:href="@{'/products/' + ${p.id}}"
+                       style="display:block; margin-bottom:4px;">
+                        <strong th:text="${p.name}">Название</strong>
+                    </a>
+
+                    <div class="ks-tag-muted" th:if="${p.category != null}"
+                         th:text="${p.category.name}">Категория</div>
+
+                    <p style="margin:8px 0 4px;">
+                        <span th:text="${p.price} + ' $'"></span>
+                    </p>
+
+                    <p class="ks-tag-muted" style="margin:0 0 8px;">
+                        В наличии: <span th:text="${p.stock}"></span> шт.
+                        <span th:if="${p.stock == 0}" style="color:#ff5252; margin-left: 6px;">Нет в наличии</span>
+                    </p>
+
+                    <div th:if="${p.stock > 0}">
+                        <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
+                            <button type="submit" class="btn btn-sm">В корзину</button>
+                        </form>
+                    </div>
+                    <div th:if="${p.stock == 0}">
+                        <span style="color:gray; font-size:13px;">Товар недоступен для заказа</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>

@@ -13,8 +13,9 @@
         <div class="mb-3">
             <span class="ks-tag-muted">Категории:</span>
             <a th:href="@{/products}"
-               th:classappend="${activeCategoryId} == null ? ' btn btn-secondary btn-sm' : ' btn btn-sm'"
-            >Все</a>
+               th:classappend="${activeCategoryId} == null ? ' btn btn-secondary btn-sm' : ' btn btn-sm'">
+                Все
+            </a>
 
             <a th:each="c : ${categories}"
                th:href="@{/products(categoryId=${c.id})}"
@@ -29,13 +30,17 @@
         </div>
 
         <!-- Карточки товаров -->
-        <div style="display:flex; flex-wrap:wrap; gap:16px;">
-            <div th:each="p : ${products}"
-                 style="flex: 0 0 calc(33.333% - 16px); min-width:220px;">
+        <div class="ks-product-grid">
+            <div th:each="p : ${products}" class="ks-product-card">
                 <div class="ks-card" style="margin-bottom:0;">
 
+                    <div class="ks-product-thumb">
+                        <img th:src="${p.imageUrl != null && !#strings.isEmpty(p.imageUrl) ? p.imageUrl : 'https://via.placeholder.com/320x180?text=TechShop'}"
+                             alt="product image">
+                    </div>
+
                     <a th:href="@{'/products/' + ${p.id}}"
-                       style="display:block; margin-bottom:8px;">
+                       style="display:block; margin-bottom:4px;">
                         <strong th:text="${p.name}"></strong>
                     </a>
 
@@ -53,7 +58,7 @@
 
                     <div th:if="${p.stock > 0}">
                         <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
-                            <button type="submit">В корзину</button>
+                            <button type="submit" class="btn btn-sm">В корзину</button>
                         </form>
                     </div>
                     <div th:if="${p.stock == 0}">

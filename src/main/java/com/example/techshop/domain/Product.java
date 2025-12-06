@@ -19,13 +19,20 @@ public class Product {
 
     private int stock;
 
+    @Column(length = 500)
+    private String imageUrl;   // URL картинки товара
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
     public Product() {}
 
-    public Product(String name, String description, BigDecimal price, int stock, Category category) {
+    public Product(String name,
+                   String description,
+                   BigDecimal price,
+                   int stock,
+                   Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -33,15 +40,16 @@ public class Product {
         this.category = category;
     }
 
-    // === ВАЖНО: добавили setId ===
+    // === геттеры/сеттеры ===
+
     public Long getId() {
         return id;
     }
 
+    // важно, что setId остался — он нужен для редактирования товара в админке
     public void setId(Long id) {
         this.id = id;
     }
-    // === /ВАЖНО ===
 
     public String getName() {
         return name;
@@ -73,6 +81,14 @@ public class Product {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Category getCategory() {
