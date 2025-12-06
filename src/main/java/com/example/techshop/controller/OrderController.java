@@ -5,6 +5,7 @@ import com.example.techshop.domain.User;
 import com.example.techshop.service.CartService;
 import com.example.techshop.service.OrderService;
 import com.example.techshop.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,12 +37,20 @@ public class OrderController {
     }
 
     @GetMapping("/checkout")
-    public String checkout(Model model, Authentication auth) {
+    public String checkout(Model model,
+                           Authentication auth,
+                           HttpSession session) {
+
         var userOpt = getCurrentUser(auth);
         if (userOpt.isEmpty()) return "redirect:/login";
 
         User user = userOpt.get();
-        var items = cartService.getItems(user);
+        String cartKey = cartService.getCartKey(session);
+
+        // На всякий случай сольём сессионную корзину в user-корзину
+        cartService.mergeSessionCartIntoUser(cartKey, user);
+
+        var items = cartService.getUserItems(user);
         if (items.isEmpty()) return "redirect:/cart";
 
         // Предзаполняем форму из профиля
@@ -63,26 +72,31 @@ public class OrderController {
 
         model.addAttribute("orderDto", orderDto);
         model.addAttribute("items", items);
-        model.addAttribute("total", cartService.getTotal(user));
+        model.addAttribute("total", cartService.getUserTotal(user));
         return "order/checkout";
     }
 
     @PostMapping("/checkout")
     public String placeOrder(@ModelAttribute("orderDto") OrderDTO dto,
                              Authentication auth,
+                             HttpSession session,
                              Model model) {
 
         var userOpt = getCurrentUser(auth);
         if (userOpt.isEmpty()) return "redirect:/login";
 
         User user = userOpt.get();
-        var items = cartService.getItems(user);
+        String cartKey = cartService.getCartKey(session);
+
+        // окончательно убедимся, что всё в user-корзине
+        cartService.mergeSessionCartIntoUser(cartKey, user);
+
+        var items = cartService.getUserItems(user);
         if (items.isEmpty()) {
             model.addAttribute("error", "Корзина пустая");
             return "order/checkout";
         }
 
-        // Создаём заказ из корзины
         var order = orderService.createOrderFromCart(
                 user,
                 items,
@@ -92,13 +106,15 @@ public class OrderController {
                 dto.getComment()
         );
 
-        cartService.clear(user);
+        // очищаем корзины
+        cartService.clearUserCart(user);
+        cartService.clearSessionCart(cartKey);
 
         model.addAttribute("orderId", order.getId());
         return "order/success";
     }
 
-    // Методы ЛК пользователей
+    // ЛК: история заказов
     @GetMapping("/history")
     public String orderHistory(Model model, Authentication auth) {
         var userOpt = getCurrentUser(auth);

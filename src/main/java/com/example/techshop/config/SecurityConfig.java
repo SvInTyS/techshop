@@ -24,7 +24,6 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // Новый способ создать AuthenticationManager
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws Exception {
@@ -35,13 +34,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .userDetailsService(userDetailsService) // <-- вот так теперь!
+                .userDetailsService(userDetailsService)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/products/**",
                                 "/login", "/register",
-                                "/css/**", "/error")
+                                "/css/**", "/error",
+                                "/cart/**")
                         .permitAll()
-                        .requestMatchers("/cart/**").authenticated()
                         .requestMatchers("/order/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()

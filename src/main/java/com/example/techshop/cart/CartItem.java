@@ -13,6 +13,11 @@ public class CartItem {
         this.quantity = 1;
     }
 
+    public CartItem(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
     public Product getProduct() {
         return product;
     }
