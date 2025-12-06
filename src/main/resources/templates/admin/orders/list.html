@@ -7,14 +7,27 @@
     <h2>Заказы</h2>
 
     <table class="table table-striped">
-        <thead><tr><th>ID</th><th>Покупатель</th><th>Дата</th><th>Сумма</th><th>Детали</th></tr></thead>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Покупатель</th>
+            <th>Дата</th>
+            <th>Сумма</th>
+            <th>Статус</th>
+            <th>Детали</th>
+        </tr>
+        </thead>
         <tbody>
         <tr th:each="o : ${orders}">
             <td th:text="${o.id}"></td>
             <td th:text="${o.user != null ? o.user.username : 'Гость'}"></td>
             <td th:text="${o.createdAt}"></td>
             <td th:text="${o.total}"></td>
-            <td><a th:href="@{'/admin/orders/' + ${o.id}}" class="btn btn-sm btn-outline-primary">Открыть</a></td>
+            <td th:text="${o.status}"></td>
+            <td>
+                <a th:href="@{'/admin/orders/' + ${o.id}}"
+                   class="btn btn-sm btn-outline-primary">Открыть</a>
+            </td>
         </tr>
         </tbody>
     </table>

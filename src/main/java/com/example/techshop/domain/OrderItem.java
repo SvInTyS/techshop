@@ -66,4 +66,14 @@ public class OrderItem {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    /**
+     * Удобный геттер для шаблонов: цена * количество.
+     */
+    public BigDecimal getTotal() {
+        if (price == null) {
+            return BigDecimal.ZERO;
+        }
+        return price.multiply(BigDecimal.valueOf(quantity));
+    }
 }

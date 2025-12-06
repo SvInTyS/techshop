@@ -6,8 +6,16 @@
 <div class="container">
     <h2 th:text="${product.id} != null ? 'Редактировать товар' : 'Создать товар'"></h2>
 
-    <form th:action="@{/admin/products/save}" th:object="${product}" method="post">
+    <!-- ВАЖНО: разный action для create / edit -->
+    <form th:action="${product.id} == null ?
+                      @{/admin/products/create} :
+                      @{'/admin/products/edit/' + ${product.id}}"
+          th:object="${product}"
+          method="post">
+
+        <!-- id можно оставить, но логика теперь на URL -->
         <input type="hidden" th:field="*{id}" />
+
         <div class="mb-3">
             <label class="form-label">Название</label>
             <input type="text" th:field="*{name}" class="form-control" required/>
@@ -30,7 +38,10 @@
             <div class="col-md-4 mb-3">
                 <label class="form-label">Категория</label>
                 <select th:field="*{category.id}" class="form-select">
-                    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+                    <option th:each="c : ${categories}"
+                            th:value="${c.id}"
+                            th:text="${c.name}">
+                    </option>
                 </select>
             </div>
         </div>

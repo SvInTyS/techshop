@@ -1,5 +1,6 @@
 package com.example.techshop.controller.admin;
 
+import com.example.techshop.domain.Category;
 import com.example.techshop.domain.Product;
 import com.example.techshop.service.CategoryService;
 import com.example.techshop.service.ProductService;
@@ -22,7 +23,7 @@ public class AdminProductController {
     @GetMapping
     public String list(@RequestParam(value = "q", required = false) String q, Model model) {
         model.addAttribute("products",
-                q == null ? productService.getAllProducts() : productService.searchByName(q));
+                (q == null || q.isBlank()) ? productService.getAllProducts() : productService.searchByName(q));
         model.addAttribute("q", q);
         return "admin/products/list";
     }
@@ -41,9 +42,39 @@ public class AdminProductController {
         return "admin/products/form";
     }
 
-    @PostMapping("/save")
-    public String save(@ModelAttribute Product product) {
-        productService.save(product);
+    // СОЗДАНИЕ НОВОГО ТОВАРА
+    @PostMapping("/create")
+    public String create(@ModelAttribute("product") Product formProduct) {
+
+        Category category = null;
+        if (formProduct.getCategory() != null && formProduct.getCategory().getId() != null) {
+            category = categoryService.findById(formProduct.getCategory().getId());
+        }
+        formProduct.setCategory(category);
+
+        productService.save(formProduct); // тут всегда INSERT
+        return "redirect:/admin/products";
+    }
+
+    // РЕДАКТИРОВАНИЕ СУЩЕСТВУЮЩЕГО ТОВАРА
+    @PostMapping("/edit/{id}")
+    public String update(@PathVariable Long id,
+                         @ModelAttribute("product") Product formProduct) {
+
+        Product existing = productService.getProductById(id); // берём из БД
+
+        existing.setName(formProduct.getName());
+        existing.setDescription(formProduct.getDescription());
+        existing.setPrice(formProduct.getPrice());
+        existing.setStock(formProduct.getStock());
+
+        Category category = null;
+        if (formProduct.getCategory() != null && formProduct.getCategory().getId() != null) {
+            category = categoryService.findById(formProduct.getCategory().getId());
+        }
+        existing.setCategory(category);
+
+        productService.save(existing); // тут ДОЛЖЕН быть UPDATE
         return "redirect:/admin/products";
     }
 

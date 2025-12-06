@@ -35,9 +35,25 @@ public class AdminCategoryController {
         return "admin/categories/form";
     }
 
-    @PostMapping("/save")
-    public String save(@ModelAttribute Category category) {
-        categoryService.save(category);
+    // СОЗДАНИЕ НОВОЙ КАТЕГОРИИ
+    @PostMapping("/create")
+    public String create(@ModelAttribute("category") Category formCategory) {
+        // formCategory.id == null -> точно новая
+        categoryService.save(formCategory);
+        return "redirect:/admin/categories";
+    }
+
+    // РЕДАКТИРОВАНИЕ СУЩЕСТВУЮЩЕЙ КАТЕГОРИИ
+    @PostMapping("/edit/{id}")
+    public String update(@PathVariable Long id,
+                         @ModelAttribute("category") Category formCategory) {
+
+        Category existing = categoryService.findById(id);
+        if (existing != null) {
+            existing.setName(formCategory.getName());
+            categoryService.save(existing);  // тут должен быть UPDATE
+        }
+
         return "redirect:/admin/categories";
     }
 

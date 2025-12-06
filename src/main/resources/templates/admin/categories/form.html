@@ -6,12 +6,19 @@
 <div class="container">
     <h2 th:text="${category.id} != null ? 'Редактировать категорию' : 'Создать категорию'">Категории</h2>
 
-    <form th:action="@{/admin/categories/save}" th:object="${category}" method="post">
+    <form th:action="${category.id} == null ?
+                      @{/admin/categories/create} :
+                      @{'/admin/categories/edit/' + ${category.id}}"
+          th:object="${category}"
+          method="post">
+
         <input type="hidden" th:field="*{id}"/>
+
         <div class="mb-3">
             <label class="form-label">Название</label>
             <input type="text" th:field="*{name}" class="form-control" required/>
         </div>
+
         <button class="btn btn-primary" type="submit">Сохранить</button>
         <a class="btn btn-secondary" href="/admin/categories">Отмена</a>
     </form>

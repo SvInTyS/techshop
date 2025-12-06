@@ -5,6 +5,7 @@ import com.example.techshop.domain.Order;
 import com.example.techshop.domain.OrderItem;
 import com.example.techshop.domain.Product;
 import com.example.techshop.domain.User;
+import com.example.techshop.domain.OrderStatus;
 import com.example.techshop.dto.OrderDTO;
 import com.example.techshop.repository.OrderRepository;
 import org.springframework.stereotype.Service;
@@ -39,11 +40,12 @@ public class OrderService {
 
         Order order = new Order();
         order.setUser(user);
-        order.setCustomerName(dto.getName()); // <- использует имя из DTO
+        order.setCustomerName(dto.getName());
         order.setPhone(dto.getPhone());
         order.setAddress(dto.getAddress());
         order.setComment(dto.getComment());
         order.setCreatedAt(LocalDateTime.now());
+        order.setStatus(OrderStatus.NEW); // <-- новый статус
 
         List<OrderItem> items = cartItems.stream().map(ci -> {
             Product p = productService.getProductById(ci.getProduct().getId());
@@ -67,8 +69,7 @@ public class OrderService {
     }
 
     /**
-     * Совместимый метод — создаёт заказ из переданных cartItems и переданных полей (используется контроллером, который вызывает createOrderFromCart).
-     * Этот метод нужен, если контроллер уже собирает items и прокидывает поля отдельно.
+     * Создаёт заказ из переданных cartItems и переданных полей.
      */
     @Transactional
     public Order createOrderFromCart(User user,
@@ -85,6 +86,7 @@ public class OrderService {
         order.setAddress(address);
         order.setComment(comment);
         order.setCreatedAt(LocalDateTime.now());
+        order.setStatus(OrderStatus.NEW); // <-- новый статус
 
         List<OrderItem> items = cartItems.stream().map(ci -> {
             Product p = productService.getProductById(ci.getProduct().getId());
@@ -104,6 +106,11 @@ public class OrderService {
 
         order.setTotal(total);
 
+        return orderRepository.save(order);
+    }
+
+    // Сохранение (для изменения статуса и т.п.)
+    public Order save(Order order) {
         return orderRepository.save(order);
     }
 

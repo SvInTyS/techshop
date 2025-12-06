@@ -15,12 +15,15 @@ public class Order {
 
     private LocalDateTime createdAt;
 
-    // Новые поля
     private String customerName;
     private String phone;
     private String address;
     private String comment;
     private BigDecimal total;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OrderStatus status; // NEW / PAID / SHIPPED / CANCELLED
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -81,6 +84,14 @@ public class Order {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
     public User getUser() {
