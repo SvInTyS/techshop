@@ -6,6 +6,15 @@
 
 <div class="ks-container">
     <div class="ks-card">
+
+        <!-- Админ-навигация -->
+        <div style="margin-bottom:12px;">
+            <a href="/admin/products" class="btn btn-sm">Товары</a>
+            <a href="/admin/orders" class="btn btn-sm btn-secondary" style="margin-left:4px;">Заказы</a>
+            <a href="/admin/categories" class="btn btn-sm" style="margin-left:4px;">Категории</a>
+            <a href="/admin/users" class="btn btn-sm" style="margin-left:4px;">Пользователи</a>
+        </div>
+
         <h2 class="ks-page-title">Заказы</h2>
 
         <table>
@@ -27,8 +36,7 @@
                 <td th:text="${o.total}"></td>
                 <td th:text="${o.status}"></td>
                 <td>
-                    <a th:href="@{'/admin/orders/' + ${o.id}}"
-                       class="btn btn-sm btn-secondary">Открыть</a>
+                    <a th:href="@{'/admin/orders/' + ${o.id}}" class="btn btn-sm btn-secondary">Открыть</a>
                 </td>
             </tr>
             </tbody>

@@ -1,31 +1,46 @@
-<!-- src/main/resources/templates/admin/users/list.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Пользователи</title>
-</head>
+<head th:replace="~{fragments/header :: head('Админка — пользователи')}"></head>
 <body>
-
 <th:block th:replace="~{fragments/header :: header}"></th:block>
 
-<h2>Пользователи</h2>
+<div class="ks-container">
+    <div class="ks-card">
 
-<table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-        <th>ID</th>
-        <th>Логин</th>
-        <th>Роль</th>
-    </tr>
+        <!-- Админ-навигация -->
+        <div style="margin-bottom:12px;">
+            <a href="/admin/products" class="btn btn-sm">Товары</a>
+            <a href="/admin/orders" class="btn btn-sm" style="margin-left:4px;">Заказы</a>
+            <a href="/admin/categories" class="btn btn-sm" style="margin-left:4px;">Категории</a>
+            <a href="/admin/users" class="btn btn-sm btn-secondary" style="margin-left:4px;">Пользователи</a>
+        </div>
 
-    <tr th:each="u : ${users}">
-        <td th:text="${u.id}"></td>
-        <td th:text="${u.username}"></td>
-        <td th:text="${u.role}"></td>
-    </tr>
-</table>
+        <h2 class="ks-page-title">Пользователи</h2>
 
-<p><a th:href="@{/admin}">Назад в админ-панель</a></p>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Логин</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Телефон</th>
+                <th>Роль</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="u : ${users}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.username}"></td>
+                <td th:text="${u.firstName}"></td>
+                <td th:text="${u.lastName}"></td>
+                <td th:text="${u.phone}"></td>
+                <td th:text="${u.role}"></td>
+            </tr>
+            </tbody>
+        </table>
 
+    </div>
+</div>
 </body>
 </html>

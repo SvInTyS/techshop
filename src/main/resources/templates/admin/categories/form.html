@@ -6,8 +6,19 @@
 
 <div class="ks-container">
     <div class="ks-card" style="max-width: 500px; margin: 0 auto;">
+
+        <!-- Админ-навигация -->
+        <div style="margin-bottom:12px;">
+            <a href="/admin/products" class="btn btn-sm">Товары</a>
+            <a href="/admin/orders" class="btn btn-sm" style="margin-left:4px;">Заказы</a>
+            <a href="/admin/categories" class="btn btn-sm btn-secondary" style="margin-left:4px;">Категории</a>
+            <a href="/admin/users" class="btn btn-sm" style="margin-left:4px;">Пользователи</a>
+        </div>
+
         <h2 class="ks-page-title"
-            th:text="${category.id} != null ? 'Редактировать категорию' : 'Создать категорию'"></h2>
+            th:text="${category.id} != null ? 'Редактировать категорию' : 'Создать категорию'">
+            Категории
+        </h2>
 
         <form th:action="@{/admin/categories/save}" th:object="${category}" method="post">
             <input type="hidden" th:field="*{id}"/>
