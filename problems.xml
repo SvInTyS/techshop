@@ -1,0 +1,478 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/TechshopApplication.java</file>
+  <line>7</line>
+  <module>techshop</module>
+  <package>com.example.techshop</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.TechshopApplication" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>19</length>
+  <highlighted_element>TechshopApplication</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/TechshopApplication.java</file>
+  <line>8</line>
+  <module>techshop</module>
+  <package>com.example.techshop</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.TechshopApplication void main(java.lang.String[] args)" />
+  <language>JAVA</language>
+  <offset>23</offset>
+  <length>4</length>
+  <highlighted_element>main</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Category.java</file>
+  <line>8</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.domain.Category" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>8</length>
+  <highlighted_element>Category</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Category.java</file>
+  <line>12</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Category id" />
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>2</length>
+  <highlighted_element>id</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Field has one usage, but the usage is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Category.java</file>
+  <line>19</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.Category Category()" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>8</length>
+  <highlighted_element>Category</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Category.java</file>
+  <line>26</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.Category java.lang.Long getId()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>5</length>
+  <highlighted_element>getId</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Order.java</file>
+  <line>9</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.domain.Order" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>5</length>
+  <highlighted_element>Order</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class has one instantiation, but the instantiation is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Order.java</file>
+  <line>13</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Order id" />
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>2</length>
+  <highlighted_element>id</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Field has one usage, but the usage is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Order.java</file>
+  <line>24</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.Order Order()" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>5</length>
+  <highlighted_element>Order</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Order.java</file>
+  <line>32</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.Order java.lang.Long getId()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>5</length>
+  <highlighted_element>getId</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/OrderItem.java</file>
+  <line>7</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.domain.OrderItem" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>9</length>
+  <highlighted_element>OrderItem</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class has one instantiation, but the instantiation is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/OrderItem.java</file>
+  <line>11</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.OrderItem id" />
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>2</length>
+  <highlighted_element>id</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Field has one usage, but the usage is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/OrderItem.java</file>
+  <line>25</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.OrderItem OrderItem()" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>9</length>
+  <highlighted_element>OrderItem</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/OrderItem.java</file>
+  <line>35</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.OrderItem java.lang.Long getId()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>5</length>
+  <highlighted_element>getId</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Product.java</file>
+  <line>7</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.domain.Product" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>7</length>
+  <highlighted_element>Product</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Product.java</file>
+  <line>11</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Product id" />
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>2</length>
+  <highlighted_element>id</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Field has one usage, but the usage is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Product.java</file>
+  <line>26</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.Product Product()" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>7</length>
+  <highlighted_element>Product</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Product.java</file>
+  <line>37</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.Product java.lang.Long getId()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>5</length>
+  <highlighted_element>getId</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>9</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.domain.User" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>4</length>
+  <highlighted_element>User</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class has one instantiation, but the instantiation is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>13</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.User id" />
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>2</length>
+  <highlighted_element>id</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Field has one usage, but the usage is not reachable from the entry points.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>27</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.User User()" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>4</length>
+  <highlighted_element>User</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>37</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.domain.User java.lang.Long getId()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>5</length>
+  <highlighted_element>getId</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/service/CategoryService.java</file>
+  <line>15</line>
+  <module>techshop</module>
+  <package>com.example.techshop.service</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.service.CategoryService CategoryService(com.example.techshop.repository.CategoryRepository categoryRepository)" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>15</length>
+  <highlighted_element>CategoryService</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/service/OrderService.java</file>
+  <line>20</line>
+  <module>techshop</module>
+  <package>com.example.techshop.service</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.service.OrderService OrderService(com.example.techshop.repository.OrderRepository orderRepository, com.example.techshop.repository.ProductRepository productRepository)" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>12</length>
+  <highlighted_element>OrderService</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/service/ProductService.java</file>
+  <line>15</line>
+  <module>techshop</module>
+  <package>com.example.techshop.service</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.service.ProductService ProductService(com.example.techshop.repository.ProductRepository productRepository)" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>14</length>
+  <highlighted_element>ProductService</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/service/UserService.java</file>
+  <line>15</line>
+  <module>techshop</module>
+  <package>com.example.techshop.service</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.service.UserService UserService(com.example.techshop.service.UserRepository userRepository)" />
+  <language>JAVA</language>
+  <offset>11</offset>
+  <length>11</length>
+  <highlighted_element>UserService</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/test/java/com/example/techshop/TechshopApplicationTests.java</file>
+  <line>7</line>
+  <module>techshop</module>
+  <package>com.example.techshop</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.TechshopApplicationTests" />
+  <language>JAVA</language>
+  <offset>6</offset>
+  <length>24</length>
+  <highlighted_element>TechshopApplicationTests</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/test/java/com/example/techshop/TechshopApplicationTests.java</file>
+  <line>10</line>
+  <module>techshop</module>
+  <package>com.example.techshop</package>
+  <entry_point TYPE="method" FQNAME="com.example.techshop.TechshopApplicationTests void contextLoads()" />
+  <language>JAVA</language>
+  <offset>9</offset>
+  <length>12</length>
+  <highlighted_element>contextLoads</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+</problems>

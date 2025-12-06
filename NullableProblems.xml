@@ -1,0 +1,106 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/CategoryRepository.java</file>
+  <line>6</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.repository.CategoryRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Category</highlighted_element>
+  <language>JAVA</language>
+  <offset>58</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/CategoryRepository.java</file>
+  <line>6</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.repository.CategoryRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Long</highlighted_element>
+  <language>JAVA</language>
+  <offset>68</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/OrderRepository.java</file>
+  <line>6</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.repository.OrderRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Order</highlighted_element>
+  <language>JAVA</language>
+  <offset>55</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/OrderRepository.java</file>
+  <line>6</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.repository.OrderRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Long</highlighted_element>
+  <language>JAVA</language>
+  <offset>62</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/ProductRepository.java</file>
+  <line>6</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.repository.ProductRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Product</highlighted_element>
+  <language>JAVA</language>
+  <offset>57</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/ProductRepository.java</file>
+  <line>6</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.repository.ProductRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Long</highlighted_element>
+  <language>JAVA</language>
+  <offset>66</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/UserRepository.java</file>
+  <line>8</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.service.UserRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>User</highlighted_element>
+  <language>JAVA</language>
+  <offset>54</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/repository/UserRepository.java</file>
+  <line>8</line>
+  <module>techshop</module>
+  <package>com.example.techshop.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.service.UserRepository" />
+  <problem_class id="NullableProblems" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">@NotNull/@Nullable problems</problem_class>
+  <description>Non-null type argument is expected</description>
+  <highlighted_element>Long</highlighted_element>
+  <language>JAVA</language>
+  <offset>60</offset>
+  <length>4</length>
+</problem>
+</problems>

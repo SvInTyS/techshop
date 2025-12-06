@@ -1,0 +1,106 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Order.java</file>
+  <line>18</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Order user" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve column 'user_id'</description>
+  <highlighted_element>user_id</highlighted_element>
+  <language>JAVA</language>
+  <offset>24</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/OrderItem.java</file>
+  <line>18</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.OrderItem product" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve column 'product_id'</description>
+  <highlighted_element>product_id</highlighted_element>
+  <language>JAVA</language>
+  <offset>24</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/OrderItem.java</file>
+  <line>22</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.OrderItem order" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve column 'order_id'</description>
+  <highlighted_element>order_id</highlighted_element>
+  <language>JAVA</language>
+  <offset>24</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Product.java</file>
+  <line>23</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Product category" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve column 'category_id'</description>
+  <highlighted_element>category_id</highlighted_element>
+  <language>JAVA</language>
+  <offset>24</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>8</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="class" FQNAME="com.example.techshop.domain.User" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve table 'app_user'</description>
+  <highlighted_element>app_user</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>22</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.User roles" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve table 'user_roles'</description>
+  <highlighted_element>user_roles</highlighted_element>
+  <language>JAVA</language>
+  <offset>29</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>23</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.User roles" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve column 'user_id'</description>
+  <highlighted_element>user_id</highlighted_element>
+  <language>JAVA</language>
+  <offset>46</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>24</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.User roles" />
+  <problem_class id="JpaDataSourceORMInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unresolved database references in annotations</problem_class>
+  <description>Cannot resolve column 'role'</description>
+  <highlighted_element>role</highlighted_element>
+  <language>JAVA</language>
+  <offset>20</offset>
+  <length>4</length>
+</problem>
+</problems>

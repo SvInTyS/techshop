@@ -1,0 +1,734 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/.gitattributes</file>
+  <line>1</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/.gitattributes" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnw'</description>
+  <highlighted_element>mvnw</highlighted_element>
+  <language>textmate</language>
+  <offset>1</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/HELP.md</file>
+  <line>23</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/HELP.md" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'Tful'</description>
+  <highlighted_element>Tful</highlighted_element>
+  <language>Markdown</language>
+  <offset>17</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>27</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>27</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'REPOURL'</description>
+  <highlighted_element>REPOURL</highlighted_element>
+  <language>Shell Script</language>
+  <offset>9</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>28</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>29</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>29</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnw'</description>
+  <highlighted_element>mvnw</highlighted_element>
+  <language>Shell Script</language>
+  <offset>62</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>44</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACMD'</description>
+  <highlighted_element>JAVACMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>6</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>44</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACCMD'</description>
+  <highlighted_element>JAVACCMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>18</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>50</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACMD'</description>
+  <highlighted_element>JAVACMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>6</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>51</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACCMD'</description>
+  <highlighted_element>JAVACCMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>6</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>53</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACMD'</description>
+  <highlighted_element>JAVACMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>6</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>54</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACCMD'</description>
+  <highlighted_element>JAVACCMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>6</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>57</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnw'</description>
+  <highlighted_element>mvnw</highlighted_element>
+  <language>Shell Script</language>
+  <offset>78</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>63</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACMD'</description>
+  <highlighted_element>JAVACMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>68</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'JAVACCMD'</description>
+  <highlighted_element>JAVACCMD</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>75</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnw'</description>
+  <highlighted_element>mvnw</highlighted_element>
+  <language>Shell Script</language>
+  <offset>83</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>86</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'CTYPE'</description>
+  <highlighted_element>CTYPE</highlighted_element>
+  <language>Shell Script</language>
+  <offset>24</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>101</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MWRAPPER'</description>
+  <highlighted_element>MWRAPPER</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>102</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'linefeeds'</description>
+  <highlighted_element>linefeeds</highlighted_element>
+  <language>Shell Script</language>
+  <offset>73</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>122</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>19</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>129</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnd'</description>
+  <highlighted_element>mvnd</highlighted_element>
+  <language>Shell Script</language>
+  <offset>44</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>135</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>31</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>136</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>36</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>139</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>8</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>139</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'REPOURL'</description>
+  <highlighted_element>REPOURL</highlighted_element>
+  <language>Shell Script</language>
+  <offset>13</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>140</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'dists'</description>
+  <highlighted_element>dists</highlighted_element>
+  <language>Shell Script</language>
+  <offset>36</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>140</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnd'</description>
+  <highlighted_element>mvnd</highlighted_element>
+  <language>Shell Script</language>
+  <offset>72</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>146</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'dists'</description>
+  <highlighted_element>dists</highlighted_element>
+  <language>Shell Script</language>
+  <offset>39</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>160</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnd'</description>
+  <highlighted_element>mvnd</highlighted_element>
+  <language>Shell Script</language>
+  <offset>68</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>185</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>2</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>185</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>28</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>185</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>55</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>185</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>77</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>186</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>36</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>186</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>57</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>186</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>78</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>186</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>100</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>190</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>4</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>190</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>21</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>191</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>44</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>191</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>61</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>209</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'getenv'</description>
+  <highlighted_element>getenv</highlighted_element>
+  <language>Shell Script</language>
+  <offset>56</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>209</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>Shell Script</language>
+  <offset>65</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>229</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnd'</description>
+  <highlighted_element>mvnd</highlighted_element>
+  <language>Shell Script</language>
+  <offset>57</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>241</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'shasum'</description>
+  <highlighted_element>shasum</highlighted_element>
+  <language>Shell Script</language>
+  <offset>72</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw</file>
+  <line>291</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnw'</description>
+  <highlighted_element>mvnw</highlighted_element>
+  <language>Shell Script</language>
+  <offset>75</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>25</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVNW'</description>
+  <highlighted_element>MVNW</highlighted_element>
+  <language>textmate</language>
+  <offset>7</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>25</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'REPOURL'</description>
+  <highlighted_element>REPOURL</highlighted_element>
+  <language>textmate</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>33</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'PSMODULEP'</description>
+  <highlighted_element>PSMODULEP</highlighted_element>
+  <language>textmate</language>
+  <offset>12</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>35</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'usebackq'</description>
+  <highlighted_element>usebackq</highlighted_element>
+  <language>textmate</language>
+  <offset>9</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>35</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'delims'</description>
+  <highlighted_element>delims</highlighted_element>
+  <language>textmate</language>
+  <offset>28</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>35</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'noprofile'</description>
+  <highlighted_element>noprofile</highlighted_element>
+  <language>textmate</language>
+  <offset>59</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>59</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'casesensitive'</description>
+  <highlighted_element>casesensitive</highlighted_element>
+  <language>textmate</language>
+  <offset>18</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>60</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnd'</description>
+  <highlighted_element>mvnd</highlighted_element>
+  <language>textmate</language>
+  <offset>9</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>61</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'MVND'</description>
+  <highlighted_element>MVND</highlighted_element>
+  <language>textmate</language>
+  <offset>9</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>68</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'mvnw'</description>
+  <highlighted_element>mvnw</highlighted_element>
+  <language>textmate</language>
+  <offset>34</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>74</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'dists'</description>
+  <highlighted_element>dists</highlighted_element>
+  <language>textmate</language>
+  <offset>36</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>91</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'DISTS'</description>
+  <highlighted_element>DISTS</highlighted_element>
+  <language>textmate</language>
+  <offset>15</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>114</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'Itemtype'</description>
+  <highlighted_element>Itemtype</highlighted_element>
+  <language>textmate</language>
+  <offset>30</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/mvnw.cmd</file>
+  <line>143</line>
+  <module>techshop</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/mvnw.cmd" />
+  <problem_class id="SpellCheckingInspection" severity="TYPO" attribute_key="TYPO">Typo</problem_class>
+  <description>Typo: In word 'PSHOME'</description>
+  <highlighted_element>PSHOME</highlighted_element>
+  <language>textmate</language>
+  <offset>17</offset>
+  <length>6</length>
+</problem>
+</problems>

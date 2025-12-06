@@ -1,0 +1,41 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Category.java</file>
+  <line>17</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Category products" />
+  <problem_class id="FieldMayBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Field may be 'final'</problem_class>
+  <description>Field &lt;code&gt;products&lt;/code&gt; may be 'final' #loc</description>
+  <highlighted_element>products</highlighted_element>
+  <language>JAVA</language>
+  <offset>26</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/Order.java</file>
+  <line>22</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.Order items" />
+  <problem_class id="FieldMayBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Field may be 'final'</problem_class>
+  <description>Field &lt;code&gt;items&lt;/code&gt; may be 'final' #loc</description>
+  <highlighted_element>items</highlighted_element>
+  <language>JAVA</language>
+  <offset>28</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>19</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.User enabled" />
+  <problem_class id="FieldMayBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Field may be 'final'</problem_class>
+  <description>Field &lt;code&gt;enabled&lt;/code&gt; may be 'final' #loc</description>
+  <highlighted_element>enabled</highlighted_element>
+  <language>JAVA</language>
+  <offset>20</offset>
+  <length>7</length>
+</problem>
+</problems>

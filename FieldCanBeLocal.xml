@@ -1,0 +1,28 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/domain/User.java</file>
+  <line>19</line>
+  <module>techshop</module>
+  <package>com.example.techshop.domain</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.domain.User enabled" />
+  <problem_class id="FieldCanBeLocal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Field can be local variable</problem_class>
+  <description>Field can be converted to a local variable</description>
+  <highlighted_element>enabled</highlighted_element>
+  <language>JAVA</language>
+  <offset>20</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/src/main/java/com/example/techshop/service/OrderService.java</file>
+  <line>18</line>
+  <module>techshop</module>
+  <package>com.example.techshop.service</package>
+  <entry_point TYPE="field" FQNAME="com.example.techshop.service.OrderService productRepository" />
+  <problem_class id="FieldCanBeLocal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Field can be local variable</problem_class>
+  <description>Field can be converted to a local variable</description>
+  <highlighted_element>productRepository</highlighted_element>
+  <language>JAVA</language>
+  <offset>36</offset>
+  <length>17</length>
+</problem>
+</problems>
