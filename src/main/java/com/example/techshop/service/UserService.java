@@ -5,6 +5,7 @@ import com.example.techshop.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,13 @@ public class UserService {
 
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    /**
+     * Возвращает список всех пользователей (для админки).
+     */
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     /**

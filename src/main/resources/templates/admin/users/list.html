@@ -1,0 +1,31 @@
+<!-- src/main/resources/templates/admin/users/list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<h2>Пользователи</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Роль</th>
+    </tr>
+
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.username}"></td>
+        <td th:text="${u.role}"></td>
+    </tr>
+</table>
+
+<p><a th:href="@{/admin}">Назад в админ-панель</a></p>
+
+</body>
+</html>
