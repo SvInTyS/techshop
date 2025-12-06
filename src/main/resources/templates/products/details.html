@@ -13,7 +13,11 @@
 
         <p style="margin-top: 16px;">
             Цена: <span th:text="${product.price}"></span> $
-            <span th:if="${product.stock == 0}" style="color:red; margin-left: 10px;">Нет в наличии</span>
+        </p>
+
+        <p class="ks-tag-muted">
+            В наличии: <span th:text="${product.stock}"></span> шт.
+            <span th:if="${product.stock == 0}" style="color:red; margin-left: 6px;">Нет в наличии</span>
         </p>
 
         <div th:if="${product.stock > 0}" style="margin-top: 12px;">
@@ -23,6 +27,10 @@
         </div>
         <div th:if="${product.stock == 0}" style="margin-top: 12px;">
             <p style="color:gray;">Товар недоступен для заказа</p>
+        </div>
+
+        <div style="margin-top: 16px;">
+            <a href="/products" class="btn btn-secondary">← Назад к каталогу</a>
         </div>
     </div>
 </div>

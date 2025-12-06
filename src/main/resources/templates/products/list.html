@@ -7,33 +7,62 @@
 
 <div class="ks-container">
     <div class="ks-card">
-        <h1 class="ks-page-title">Все товары</h1>
+        <h1 class="ks-page-title">Каталог</h1>
+
+        <!-- Фильтр по категориям -->
+        <div class="mb-3">
+            <span class="ks-tag-muted">Категории:</span>
+            <a th:href="@{/products}"
+               th:classappend="${activeCategoryId} == null ? ' btn btn-secondary btn-sm' : ' btn btn-sm'"
+            >Все</a>
+
+            <a th:each="c : ${categories}"
+               th:href="@{/products(categoryId=${c.id})}"
+               th:text="${c.name}"
+               th:classappend="${activeCategoryId} != null and activeCategoryId == c.id ? ' btn btn-secondary btn-sm' : ' btn btn-sm'"
+               style="margin-left:4px;">
+            </a>
+        </div>
 
         <div th:if="${#lists.isEmpty(products)}">
-            <p class="ks-tag-muted">Пока нет доступных товаров.</p>
+            <p class="ks-tag-muted">В этой категории пока нет товаров.</p>
         </div>
 
-        <div th:each="p : ${products}" class="ks-product-list-item">
-            <a th:href="@{'/products/' + ${p.id}}">
-                <strong th:text="${p.name}"></strong>
-            </a>
-            <div>
-                <span th:text="${p.price} + ' $'"></span>
-                <span th:if="${p.stock == 0}" style="color:red; margin-left: 10px;">Нет в наличии</span>
-            </div>
+        <!-- Карточки товаров -->
+        <div style="display:flex; flex-wrap:wrap; gap:16px;">
+            <div th:each="p : ${products}"
+                 style="flex: 0 0 calc(33.333% - 16px); min-width:220px;">
+                <div class="ks-card" style="margin-bottom:0;">
 
-            <div style="margin-top: 8px;">
-                <div th:if="${p.stock > 0}">
-                    <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
-                        <button type="submit">В корзину</button>
-                    </form>
-                </div>
-                <div th:if="${p.stock == 0}">
-                    <span style="color:gray;">Товар недоступен для заказа</span>
+                    <a th:href="@{'/products/' + ${p.id}}"
+                       style="display:block; margin-bottom:8px;">
+                        <strong th:text="${p.name}"></strong>
+                    </a>
+
+                    <div class="ks-tag-muted" th:if="${p.category != null}"
+                         th:text="${p.category.name}"></div>
+
+                    <p style="margin:8px 0 4px;">
+                        <span th:text="${p.price} + ' $'"></span>
+                    </p>
+
+                    <p class="ks-tag-muted" style="margin:0 0 8px;">
+                        В наличии: <span th:text="${p.stock}"></span> шт.
+                        <span th:if="${p.stock == 0}" style="color:red; margin-left: 6px;">Нет в наличии</span>
+                    </p>
+
+                    <div th:if="${p.stock > 0}">
+                        <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
+                            <button type="submit">В корзину</button>
+                        </form>
+                    </div>
+                    <div th:if="${p.stock == 0}">
+                        <span style="color:gray;">Товар недоступен для заказа</span>
+                    </div>
                 </div>
             </div>
-
         </div>
+
     </div>
 </div>
 

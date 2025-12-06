@@ -9,4 +9,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     // Поиск по подстроке в названии (без учёта регистра)
     List<Product> findByNameContainingIgnoreCase(String name);
+
+    // По категории
+    List<Product> findByCategoryId(Long categoryId);
 }
