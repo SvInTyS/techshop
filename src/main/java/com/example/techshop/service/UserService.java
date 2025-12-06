@@ -22,6 +22,8 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    // ===== базовые методы =====
+
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
@@ -31,19 +33,21 @@ public class UserService {
     }
 
     /**
-     * Создание пользователя на основе DTO (регистрация).
+     * Создание пользователя из DTO с указанной ролью
      */
     public User createUser(UserDTO dto, String role) {
 
-        if (userRepository.findByUsername(dto.getEmail()).isPresent()) {
+        // username в DTO = email/логин
+        if (userRepository.findByUsername(dto.getUsername()).isPresent()) {
             throw new RuntimeException("User already exists");
         }
 
         User user = new User();
-        user.setUsername(dto.getEmail());
+        user.setUsername(dto.getUsername());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setRole(role);
 
+        // дополнительные поля профиля
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setPhone(dto.getPhone());
@@ -52,26 +56,14 @@ public class UserService {
     }
 
     /**
-     * Обновление профиля текущего пользователя.
+     * Обновление профиля пользователя из ProfileDTO
      */
-    public User updateProfile(User user, ProfileDTO dto) {
-
-        // если email меняется — проверяем уникальность
-        String newEmail = dto.getEmail();
-        if (!user.getUsername().equals(newEmail)) {
-            userRepository.findByUsername(newEmail).ifPresent(existing -> {
-                if (!existing.getId().equals(user.getId())) {
-                    throw new RuntimeException("Email already in use");
-                }
-            });
-        }
-
-        user.setUsername(newEmail);
+    public void updateProfile(User user, ProfileDTO dto) {
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
+        user.setUsername(dto.getUsername());
         user.setPhone(dto.getPhone());
-
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 
     /**

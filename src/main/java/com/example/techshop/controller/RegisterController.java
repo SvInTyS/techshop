@@ -29,23 +29,21 @@ public class RegisterController {
             BindingResult bindingResult,
             Model model
     ) {
-
-        // Уже есть ошибки валидации полей
+        // 1. Ошибки валидации (имя/фамилия/email/телефон/пароль)
         if (bindingResult.hasErrors()) {
             return "register";
         }
 
-        // Проверим уникальность email (username)
-        if (userService.findByUsername(dto.getEmail()).isPresent()) {
-            bindingResult.rejectValue(
-                    "email",
-                    "duplicate",
-                    "Пользователь с такой почтой уже существует"
-            );
+        // 2. Проверка, что такой логин (email) не занят
+        if (userService.findByUsername(dto.getUsername()).isPresent()) {
+            model.addAttribute("error", "Пользователь с таким логином уже существует");
             return "register";
         }
 
+        // 3. Создание пользователя с ролью ROLE_USER
         userService.createUser(dto, "ROLE_USER");
+
+        // 4. Редирект на страницу логина
         return "redirect:/login";
     }
 }

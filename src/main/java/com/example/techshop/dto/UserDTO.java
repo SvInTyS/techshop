@@ -8,31 +8,38 @@ import jakarta.validation.constraints.Size;
 public class UserDTO {
 
     @NotBlank(message = "Имя обязательно")
-    @Pattern(regexp = "^[A-Za-zА-Яа-яЁё\\-]{2,50}$",
-            message = "Имя должно содержать только буквы и быть длиной от 2 до 50 символов")
+    @Pattern(
+            regexp = "^[А-Яа-яA-Za-z\\-\\s]{2,30}$",
+            message = "Имя должно содержать только буквы и быть от 2 до 30 символов"
+    )
     private String firstName;
 
     @NotBlank(message = "Фамилия обязательна")
-    @Pattern(regexp = "^[A-Za-zА-Яа-яЁё\\-]{2,50}$",
-            message = "Фамилия должна содержать только буквы и быть длиной от 2 до 50 символов")
+    @Pattern(
+            regexp = "^[А-Яа-яA-Za-z\\-\\s]{2,30}$",
+            message = "Фамилия должна содержать только буквы и быть от 2 до 30 символов"
+    )
     private String lastName;
 
-    @NotBlank(message = "Почта обязательна")
-    @Email(message = "Введите корректный email")
-    private String email;
+    @NotBlank(message = "Email обязателен")
+    @Email(message = "Некорректный email")
+    private String username; // используем как логин
 
     @NotBlank(message = "Телефон обязателен")
     @Pattern(
-            regexp = "^\\+?\\d{11}$",
-            message = "Телефон должен содержать 11 цифр (например, +79991234567)"
+            regexp = "^\\+?\\d{11,15}$",
+            message = "Телефон должен содержать от 11 до 15 цифр, можно с + в начале"
     )
     private String phone;
 
     @NotBlank(message = "Пароль обязателен")
-    @Size(min = 6, max = 100, message = "Пароль должен быть от 6 до 100 символов")
+    @Size(min = 6, max = 100, message = "Пароль должен быть не короче 6 символов")
     private String password;
 
-    public UserDTO() {}
+    public UserDTO() {
+    }
+
+    // ---- getters / setters ----
 
     public String getFirstName() {
         return firstName;
@@ -50,12 +57,12 @@ public class UserDTO {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPhone() {

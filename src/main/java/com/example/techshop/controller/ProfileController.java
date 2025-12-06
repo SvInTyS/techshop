@@ -3,14 +3,11 @@ package com.example.techshop.controller;
 import com.example.techshop.domain.User;
 import com.example.techshop.dto.ProfileDTO;
 import com.example.techshop.service.UserService;
-import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/profile")
@@ -22,60 +19,51 @@ public class ProfileController {
         this.userService = userService;
     }
 
-    private Optional<User> getCurrentUser(Authentication auth) {
-        if (auth == null || !auth.isAuthenticated()) return Optional.empty();
+    private User getCurrentUserOrThrow(Authentication auth) {
+        if (auth == null || !auth.isAuthenticated()) {
+            throw new IllegalStateException("Not authenticated");
+        }
         String username = auth.getName();
-        if (username == null || "anonymousUser".equals(username)) return Optional.empty();
-        return userService.findByUsername(username);
+        return userService.getRequiredUser(username);
     }
 
     @GetMapping
-    public String viewProfile(Model model, Authentication auth) {
+    public String showProfile(Model model, Authentication auth) {
 
-        var userOpt = getCurrentUser(auth);
-        if (userOpt.isEmpty()) {
-            return "redirect:/login";
+        User user = getCurrentUserOrThrow(auth);
+
+        // если после редиректа уже есть profileDto (с ошибкой) — не перезатираем
+        if (!model.containsAttribute("profileDto")) {
+            ProfileDTO dto = new ProfileDTO();
+            dto.setFirstName(user.getFirstName());
+            dto.setLastName(user.getLastName());
+            dto.setUsername(user.getUsername());
+            dto.setPhone(user.getPhone());
+            model.addAttribute("profileDto", dto);
         }
 
-        User user = userOpt.get();
-
-        ProfileDTO dto = new ProfileDTO();
-        dto.setFirstName(user.getFirstName());
-        dto.setLastName(user.getLastName());
-        dto.setEmail(user.getUsername());
-        dto.setPhone(user.getPhone());
-
-        model.addAttribute("profile", dto);
-        return "profile";
+        return "profile/edit";
     }
 
     @PostMapping
-    public String updateProfile(@Valid @ModelAttribute("profile") ProfileDTO dto,
-                                BindingResult bindingResult,
-                                Authentication auth,
-                                Model model) {
+    public String updateProfile(
+            @ModelAttribute("profileDto") ProfileDTO dto,
+            Authentication auth,
+            RedirectAttributes ra
+    ) {
+        User user = getCurrentUserOrThrow(auth);
 
-        var userOpt = getCurrentUser(auth);
-        if (userOpt.isEmpty()) {
-            return "redirect:/login";
+        // проверяем, что новый username не занят другим пользователем
+        var existing = userService.findByUsername(dto.getUsername());
+        if (existing.isPresent() && !existing.get().getId().equals(user.getId())) {
+            ra.addFlashAttribute("error", "Пользователь с таким логином уже существует");
+            ra.addFlashAttribute("profileDto", dto);
+            return "redirect:/profile";
         }
 
-        User user = userOpt.get();
+        userService.updateProfile(user, dto);
 
-        if (bindingResult.hasErrors()) {
-            return "profile";
-        }
-
-        try {
-            userService.updateProfile(user, dto);
-        } catch (RuntimeException ex) {
-            // например, email уже используется
-            bindingResult.rejectValue("email", "duplicate", ex.getMessage());
-            return "profile";
-        }
-
-        // чтобы показать сообщение "успешно сохранено"
-        model.addAttribute("success", true);
-        return "profile";
+        ra.addFlashAttribute("success", "Профиль обновлён");
+        return "redirect:/profile";
     }
 }

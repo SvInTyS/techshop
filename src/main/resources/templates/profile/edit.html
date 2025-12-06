@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head('Мой профиль')}"></head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<div class="ks-container">
+    <div class="ks-card" style="max-width: 500px; margin: 0 auto;">
+        <h2 class="ks-page-title">Мой профиль</h2>
+
+        <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+        <form th:action="@{/profile}"
+              th:object="${profileDto}"
+              method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Имя</label>
+                <input type="text" th:field="*{firstName}" class="form-control"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Фамилия</label>
+                <input type="text" th:field="*{lastName}" class="form-control"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Логин (email)</label>
+                <input type="text" th:field="*{username}" class="form-control"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Телефон</label>
+                <input type="text" th:field="*{phone}" class="form-control" placeholder="+79991234567"/>
+            </div>
+
+            <button class="btn" type="submit">Сохранить</button>
+            <a href="/" class="btn btn-secondary" style="margin-left:8px;">На главную</a>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
